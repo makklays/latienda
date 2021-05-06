@@ -1,0 +1,394 @@
+
+body {
+    margin:0;
+    padding:0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+p {
+    font-size: 18px;
+}
+
+.grey {
+    font-size: 14px;
+    color: grey;
+}
+
+a.green, a.green:visited, a.green:active, a.green:link {
+    color: #267f00;
+    text-decoration: none;
+}
+a.green:hover {
+    color: #46bf00;
+    /*text-decoration-style: dashed;*/
+    text-decoration: none;
+}
+
+a, a:visited, a:active, a:link {
+    color: #267f00;
+    text-decoration: none;
+}
+a:hover {
+    color: #46bf00;
+    /*text-decoration-style: dashed;*/
+    text-decoration: none;
+}
+
+.btn-success {
+    background-color: #267f00;
+    border-color: #267f00;
+}
+.btn-success:hover {
+    background-color: #46bf00;
+    border-color: #267f00;
+}
+
+.flex-block {
+    display: flex;
+    flex-direction: row;
+}
+.ch-block {
+    border-radius: 3px;
+    border:1px solid grey;
+    transition: box-shadow .3s;
+    height:250px;
+    width: 360px;
+}
+.ch-block:hover {
+    box-shadow: 0 0 30px #267f00;  /* #4293f6  rgb(190, 10, 15); */
+    cursor:pointer;
+    background-size: cover;
+}
+
+.ch-block-img {
+    box-shadow: 0 0 30px #267f00;
+    border-radius: 3px;
+    border: 1px solid grey;
+    transition: box-shadow .3s;
+    width: 200px;
+    margin: 20px 0 10px 0;
+}
+
+div.or {
+    font-size: 18px;
+    color: #1b1e21;
+    margin: 105px 30px 0 30px;
+    height: 140px;
+    width: 40px;
+    text-align: center;
+}
+div.thead {
+    text-align: center;
+    width: 780px;
+}
+div.test-block {
+    width:780px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#id-loader-test {
+    display:none;
+}
+.test-loader {
+    margin-top:176px;
+}
+
+/*@media screen and (max-width: 768px) {
+    .ch-block {
+        height: 130px;
+        width: 160px;
+    }
+    div.test-block {
+        width: 350px;
+    }
+    div.thead {
+        width: 350px;
+    }
+    div.or {
+        font-size: 16px;
+        margin: 50px 5px 0 5px;
+        height: 130px;
+    }
+}*/
+
+.rezina-border {
+    border: 1px solid #e7e7e7;
+    padding: 10px;
+    margin-bottom: 40px;
+}
+.rezina-img {
+    width: 200px;
+}
+
+/* 1. Смартфоны (Портрет и ландшафтный) */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .rezina-width {
+        width: 330px;
+        font-size: 14px;
+        text-align: justify;
+    }
+    .rezina-border {
+        border: 1px solid #e7e7e7;
+        padding: 10px;
+        margin-bottom: 40px;
+    }
+    .rezina-img {
+        width: 280px;
+    }
+}
+
+/* 2. Смартфоны (ландшафтный) */
+@media only screen and (min-width : 321px) {
+    .rezina-width {
+        width: 310px;
+        font-size: 14px;
+        text-align: justify;
+    }
+    .rezina-border {
+        border: 1px solid #e7e7e7;
+        padding: 10px;
+        margin-bottom: 40px;
+    }
+    .rezina-img {
+        width: 200px;
+    }
+}
+
+/* 3. Смартфоны (portrait) */
+@media only screen and (max-width : 320px) {
+    .rezina-width {
+        width: 250px;
+        font-size: 14px;
+        text-align: justify;
+    }
+    .rezina-border {
+        border: 1px solid #e7e7e7;
+        padding: 10px;
+        margin-bottom: 40px;
+    }
+    .rezina-img {
+        width: 200px;
+    }
+}
+
+/* 4. iPads (Портрет и Ландшафтный) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .rezina-width {
+        width: 748px;
+        font-size: 14px;
+        text-align: justify;
+    }
+    .rezina-border {
+        border: 1px solid #e7e7e7;
+        padding: 10px;
+        margin-bottom: 40px;
+    }
+    .rezina-img {
+        width: 300px;
+    }
+}
+
+/* 5. iPads (Ландшафтный)| */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+    .rezina-width {
+        width: 748px;
+        font-size: 14px;
+        text-align: justify;
+    }
+    .rezina-border {
+        border: 1px solid #e7e7e7;
+        padding: 10px;
+        margin-bottom: 40px;
+    }
+    .rezina-img {
+        width: 300px;
+    }
+}
+
+/* 6. iPads (Портрет) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+    .rezina-width {
+        width: 748px;
+        font-size: 14px;
+        text-align: justify;
+    }
+    .rezina-border {
+        border: 1px solid #e7e7e7;
+        padding: 10px;
+        margin-bottom: 40px;
+    }
+    .rezina-img {
+        width: 300px;
+    }
+}
+
+/* 7. Настольные компьютеры и ноутбуки */
+@media only screen and (min-width : 1224px) {
+    .rezina-width {
+        width: 800px; /*1214px;*/
+        font-size: 16px;
+        text-align: justify;
+    }
+    .rezina-border {
+        border: 1px solid #e7e7e7;
+        padding: 10px;
+        margin-bottom: 40px;
+    }
+    .rezina-img {
+        width: 300px;
+    }
+}
+
+/* 8. Большие экраны */
+@media only screen and (min-width : 1824px) {
+    .rezina-width {
+        width: 800px; /*1814px;*/
+        font-size: 18px;
+        text-align: justify;
+    }
+    .rezina-border {
+        border: 1px solid #e7e7e7;
+        padding: 10px;
+        margin-bottom: 40px;
+    }
+    .rezina-img {
+        width: 300px;
+    }
+}
+
+/* 9. iPhone 4 */
+/*@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+    .rezina-width {
+        width: 100px;
+        font-size: 14px;
+        text-align: justify;
+    }
+    .rezina-border {
+        border: 1px solid #e7e7e7;
+        padding: 10px;
+        margin-bottom: 40px;
+    }
+}*/
+
+
+
+/* Mobile devices */
+@media screen and (max-width: 768px) { /* 320px */
+    .flex-block {
+        flex-direction: column;
+    }
+    .ch-block {
+        height:200px;
+        width: 280px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    /*.ch-block:last-child {
+        margin-bottom:30px;
+    }*/
+    div.test-block {
+        width: 310px;
+    }
+    div.thead {
+        width: 310px;
+    }
+    div.or {
+        font-size: 18px;
+        margin: 0 5px 0 5px;
+        height: 50px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .test-loader {
+        margin-top:290px;
+    }
+    a, a:visited, a:active, a:link, a:hover {
+        color: #267F00;
+    }
+}
+
+/* preloader  */
+.lds-spinner {
+    color: official;
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+}
+.lds-spinner div {
+    transform-origin: 32px 32px;
+    animation: lds-spinner 1.2s linear infinite;
+}
+.lds-spinner div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 29px;
+    width: 5px;
+    height: 14px;
+    border-radius: 20%;
+    background: #fff;
+}
+.lds-spinner div:nth-child(1) {
+    transform: rotate(0deg);
+    animation-delay: -1.1s;
+}
+.lds-spinner div:nth-child(2) {
+    transform: rotate(30deg);
+    animation-delay: -1s;
+}
+.lds-spinner div:nth-child(3) {
+    transform: rotate(60deg);
+    animation-delay: -0.9s;
+}
+.lds-spinner div:nth-child(4) {
+    transform: rotate(90deg);
+    animation-delay: -0.8s;
+}
+.lds-spinner div:nth-child(5) {
+    transform: rotate(120deg);
+    animation-delay: -0.7s;
+}
+.lds-spinner div:nth-child(6) {
+    transform: rotate(150deg);
+    animation-delay: -0.6s;
+}
+.lds-spinner div:nth-child(7) {
+    transform: rotate(180deg);
+    animation-delay: -0.5s;
+}
+.lds-spinner div:nth-child(8) {
+    transform: rotate(210deg);
+    animation-delay: -0.4s;
+}
+.lds-spinner div:nth-child(9) {
+    transform: rotate(240deg);
+    animation-delay: -0.3s;
+}
+.lds-spinner div:nth-child(10) {
+    transform: rotate(270deg);
+    animation-delay: -0.2s;
+}
+.lds-spinner div:nth-child(11) {
+    transform: rotate(300deg);
+    animation-delay: -0.1s;
+}
+.lds-spinner div:nth-child(12) {
+    transform: rotate(330deg);
+    animation-delay: 0s;
+}
+@keyframes lds-spinner {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+/* end preloader */

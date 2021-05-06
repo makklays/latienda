@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('', ['as' => '/', 'uses' => 'App\Http\Controllers\Web\PagesController@home']);
+
+Route::group([
+    'prefix' => '{locale}',
+    'where' => ['locale' => '[a-zA-Z]{2}'],
+    'middleware' => 'setlocale'
+], function () {
+
+    Route::get('', ['as' => '/', 'uses' => 'App\Http\Controllers\Web\PagesController@home']);
+    Route::get('about-us', ['as' => 'about', 'uses' => 'App\Http\Controllers\Web\PagesController@about']);
+    Route::get('contacts', ['as' => 'contacts', 'uses' => 'App\Http\Controllers\Web\PagesController@contacts']);
+
 });
