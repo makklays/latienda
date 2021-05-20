@@ -9,7 +9,7 @@
 
 # Latienda
 
-<b>Latienda</b> sería ha realiando en Laravel 8
+La tienda línea - es sitio web para verder diferentas cosas en internet. Desarrolló en framework Laravel8. Es ejemplo perfecto que demonstra mi código en Laravel.
 
 Tiene los ejemplos ha usando: Facades, Provider, Service, Models, RequestForm, Middleware, REST API, Blade, Multilanguage;
 
