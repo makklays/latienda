@@ -5,13 +5,13 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('/', app()->getLocale()) }}" class="a-green"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-            <li class="breadcrumb-item" aria-current="page">{{ trans('site.contacts') }}</li>
+            <li class="breadcrumb-item" aria-current="page">{{ trans('main.contacts') }}</li>
         </ol>
     </nav>
 
     <div class="row">
         <div class="col-md-12">
-            <br/><h1 class="text-center text-design2">{{ trans('site.contacts') }}</h1> <br/>
+            <br/><h1 class="text-center text-design2">{{ trans('main.contacts') }}</h1> <br/>
         </div>
     </div>
 
@@ -43,18 +43,18 @@
 
             var contentString = '<div id="content">'+
                 '<h5>Latienda</h5>'+
-                '<p><?=trans('site.')?></p>'+
+                '<p><?=trans('main.')?></p>'+
                 '<div id="bodyContent">'+
                 '<p><address>'+
-                '<b><?=trans('site.mysite_contacts')?></b><br/>'+
-                '<abbr title="<?=trans('site.contacts_skype')?>"><?=trans('site.contacts_skype')?>:</abbr> latienda <br/>'+
-                '<abbr title="<?=trans('site.contacts_mob')?>"><?=trans('site.contacts_mob')?>:</abbr> +38 (098) 870 5397 <br/>'+
+                '<b><?=trans('main.mysite_contacts')?></b><br/>'+
+                '<abbr title="<?=trans('main.contacts_skype')?>"><?=trans('main.contacts_skype')?>:</abbr> latienda <br/>'+
+                '<abbr title="<?=trans('main.contacts_mob')?>"><?=trans('main.contacts_mob')?>:</abbr> +38 (098) 870 5397 <br/>'+
                 '<a href="mailto:office@latienda" class="a-green">office@latienda</a> <br/>'+
                 '</address>'+
                 '<address>'+
-                '<b><?=trans('site.Times_working')?></b> <br/>'+
-                "<span><?=trans('site.mon_fri')?></span> <br/>"+
-                '<span><?=trans('site.sur_sun')?></span>'+
+                '<b><?=trans('main.Times_working')?></b> <br/>'+
+                "<span><?=trans('main.mon_fri')?></span> <br/>"+
+                '<span><?=trans('main.sur_sun')?></span>'+
                 '</address></p>'+
                 '</div>';
 

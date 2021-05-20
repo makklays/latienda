@@ -59,23 +59,6 @@ $(document).ready(function() {
     /*}}}*/
 
 
-    /* Open when someone clicks on the span element */
-    function openNav() {
-        document.getElementById("myNav").style.height = "100%";
-    }
-    /* Close when someone clicks on the "x" symbol inside the overlay */
-    function closeNav() {
-        document.getElementById("myNav").style.height = "0%";
-    }
-    function show_mmovil() {
-        if ($('#id_mmovil').css('display') == 'none') {
-            $('#id_mmovil').css('display', 'block');
-        } else {
-            $('#id_mmovil').css('display', 'none');
-        }
-        return false;
-    }
-
     // открываем модальное окно
     $('#id_order_development').on('click', function () {
         $("#id_frmSentOrder").css('display', 'block');
@@ -153,3 +136,20 @@ $(document).ready(function() {
         $('#id_div_accept').css('display', 'none');
     }
 });
+
+/* Open when someone clicks on the span element */
+function openNav() {
+    document.getElementById("myNav").style.height = "100%";
+}
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+}
+function show_mmovil() {
+    if ($('#id_mmovil').css('display') == 'none') {
+        $('#id_mmovil').css('display', 'block');
+    } else {
+        $('#id_mmovil').css('display', 'none');
+    }
+    return false;
+}
