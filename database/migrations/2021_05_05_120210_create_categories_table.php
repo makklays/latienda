@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->integer('parent_id')->unsigned()->default(0);
             //$table->integer('user_id')->unsigned();
             $table->string('title');
+            $table->string('slug');
             $table->text('description')->nullable();
             $table->string('img')->nullable();
             $table->enum('is_active', [1, 0])->default(1);

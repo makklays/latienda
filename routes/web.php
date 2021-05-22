@@ -42,4 +42,14 @@ Route::group([
 
     Route::get('/products', ['as' => 'products', 'uses' => 'App\Http\Controllers\Web\ProductController@index']);
     Route::get('/p/{slug}', ['as' => 'product', 'uses' => 'App\Http\Controllers\Web\ProductController@show']);
+
+    // auth
+    Route::get('/login', ['as' => 'login', 'uses' => 'App\Http\Controllers\Web\AuthController@login']);
+    Route::post('/login_process', ['as' => 'login_process', 'uses' => 'App\Http\Controllers\Web\AuthController@loginProcess']);
+
+    Route::get('/register', ['as' => 'register', 'uses' => 'App\Http\Controllers\Web\AuthController@register']);
+    Route::post('/register_process', ['as' => 'register_process', 'uses' => 'App\Http\Controllers\Web\AuthController@registerProcess']);
+
+    Route::get('/verify', ['as' => 'verify', 'uses' => 'App\Http\Controllers\Web\AuthController@verify']);
+    Route::get('/logout', ['as' => 'logout', 'uses' => 'App\Http\Controllers\Web\AuthController@logout']);
 });
