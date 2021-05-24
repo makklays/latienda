@@ -6,6 +6,7 @@ use App\Facades\Seo;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\CategoryRequest;
 use App\Http\Requests\Web\LoginRequest;
+use App\Http\Requests\Web\RegisterRequest;
 use App\Models\Api\Category;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
@@ -32,11 +33,40 @@ class AuthController extends Controller
 
         $user = User::query()->where(['email' => $email, 'password' => $password])->first();
 
-        dd($user);
-        exit;
+        //dd($user);
+        //exit;
 
         return view('auth.login', [
-            '' => '',
+            'user' => $user,
+        ]);
+    }
+
+    public function register(Request $request)
+    {
+        $seo = Seo::metaTags('register');
+
+        return view('auth.register', [
+            'seo' => $seo,
+        ]);
+    }
+
+    public function registerProcess(RegisterRequest $request)
+    {
+        $name = $request->get('name');
+        $password = Hash::make($request->get('password'));
+        $email = $request->get('email');
+
+        $user = User::query()->create([
+            'name' => $name,
+            'email' => $email,
+            'password' => $password,
+        ]);
+
+        //dd($user);
+        //exit;
+
+        return view('auth.register', [
+            'user' => $user,
         ]);
     }
 }
