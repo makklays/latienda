@@ -106,8 +106,13 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
-                <a href="{{ route('login', app()->getLocale()) }}">Sign In</a> &nbsp;&nbsp;
-                <a href="{{ route('register', app()->getLocale()) }}">Sign Up</a> &nbsp;&nbsp;
+                <?php if (!empty(\Auth::user()->email)): ?>
+                    <a href="{{ route('da_home', app()->getLocale()) }}">{{ \Auth::user()->name }}</a> &nbsp;&nbsp;
+                    <a href="{{ route('logout', app()->getLocale()) }}">Logout</a> &nbsp;&nbsp;
+                <?php else: ?>
+                    <a href="{{ route('login', app()->getLocale()) }}">Sign In</a> &nbsp;&nbsp;
+                    <a href="{{ route('register', app()->getLocale()) }}">Sign Up</a> &nbsp;&nbsp;
+                <?php endif; ?>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
@@ -117,37 +122,37 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="width:70px !important; min-width:10px;">
 
                         <?php if (\Route::current()->getName() == 'category' && $slug = request()->segment(3)): ?>
-                            <?php if (app()->getLocale() != 'es'): ?>
-                                <a href="{{ route( \Route::current()->getName(), ['es', $slug]) }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/es.png" class="mlimg" alt="ES" title="ES" /></a>
-                            <?php endif; ?>
-                            <?php if (app()->getLocale() != 'en'): ?>
-                                <a href="{{ route( \Route::current()->getName(), ['en', $slug]) }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/en.png" class="mlimg" alt="EN" title="EN" /></a>
-                            <?php endif; ?>
-                            <?php if (app()->getLocale() != 'ru'): ?>
-                                <a href="{{ route( \Route::current()->getName(), ['ru', $slug]) }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/ru.png" class="mlimg" alt="RU" title="RU" /></a>
-                            <?php endif; ?>
-                                <?php if (app()->getLocale() != 'de'): ?>
-                            <a href="{{ route( \Route::current()->getName(), ['de', $slug]) }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/de.png" class="mlimg" alt="DE" title="DE" /></a>
-                                <?php endif; ?>
-                            <?php if (app()->getLocale() != 'fr'): ?>
-                                <a href="{{ route( \Route::current()->getName(), ['fr', $slug]) }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/fr.png" class="mlimg" alt="FR" title="FR" /></a>
-                            <?php endif; ?>
+                        <?php if (app()->getLocale() != 'es'): ?>
+                        <a href="{{ route( \Route::current()->getName(), ['es', $slug]) }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/es.png" class="mlimg" alt="ES" title="ES" /></a>
+                        <?php endif; ?>
+                        <?php if (app()->getLocale() != 'en'): ?>
+                        <a href="{{ route( \Route::current()->getName(), ['en', $slug]) }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/en.png" class="mlimg" alt="EN" title="EN" /></a>
+                        <?php endif; ?>
+                        <?php if (app()->getLocale() != 'ru'): ?>
+                        <a href="{{ route( \Route::current()->getName(), ['ru', $slug]) }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/ru.png" class="mlimg" alt="RU" title="RU" /></a>
+                        <?php endif; ?>
+                        <?php if (app()->getLocale() != 'de'): ?>
+                        <a href="{{ route( \Route::current()->getName(), ['de', $slug]) }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/de.png" class="mlimg" alt="DE" title="DE" /></a>
+                        <?php endif; ?>
+                        <?php if (app()->getLocale() != 'fr'): ?>
+                        <a href="{{ route( \Route::current()->getName(), ['fr', $slug]) }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/fr.png" class="mlimg" alt="FR" title="FR" /></a>
+                        <?php endif; ?>
                         <?php else: ?>
-                            <?php if (app()->getLocale() != 'es'): ?>
-                                <a href="{{ route( \Route::current()->getName(), 'es') }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/es.png" class="mlimg" alt="ES" title="ES" /></a>
-                            <?php endif; ?>
-                            <?php if (app()->getLocale() != 'en'): ?>
-                                <a href="{{ route( \Route::current()->getName(), 'en') }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/en.png" class="mlimg" alt="EN" title="EN" /></a>
-                            <?php endif; ?>
-                            <?php if (app()->getLocale() != 'ru'): ?>
-                                <a href="{{ route( \Route::current()->getName(), 'ru') }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/ru.png" class="mlimg" alt="RU" title="RU" /></a>
-                            <?php endif; ?>
-                            <?php if (app()->getLocale() != 'de'): ?>
-                                <a href="{{ route( \Route::current()->getName(), 'de') }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/de.png" class="mlimg" alt="DE" title="DE" /></a>
-                            <?php endif; ?>
-                            <?php if (app()->getLocale() != 'fr'): ?>
-                                <a href="{{ route( \Route::current()->getName(), 'fr') }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/fr.png" class="mlimg" alt="FR" title="FR" /></a>
-                            <?php endif; ?>
+                        <?php if (app()->getLocale() != 'es'): ?>
+                        <a href="{{ route( \Route::current()->getName(), 'es') }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/es.png" class="mlimg" alt="ES" title="ES" /></a>
+                        <?php endif; ?>
+                        <?php if (app()->getLocale() != 'en'): ?>
+                        <a href="{{ route( \Route::current()->getName(), 'en') }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/en.png" class="mlimg" alt="EN" title="EN" /></a>
+                        <?php endif; ?>
+                        <?php if (app()->getLocale() != 'ru'): ?>
+                        <a href="{{ route( \Route::current()->getName(), 'ru') }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/ru.png" class="mlimg" alt="RU" title="RU" /></a>
+                        <?php endif; ?>
+                        <?php if (app()->getLocale() != 'de'): ?>
+                        <a href="{{ route( \Route::current()->getName(), 'de') }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/de.png" class="mlimg" alt="DE" title="DE" /></a>
+                        <?php endif; ?>
+                        <?php if (app()->getLocale() != 'fr'): ?>
+                        <a href="{{ route( \Route::current()->getName(), 'fr') }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/fr.png" class="mlimg" alt="FR" title="FR" /></a>
+                        <?php endif; ?>
                         <?php endif; ?>
                     </div>
                 </li>
@@ -158,7 +163,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid" >
+    <div class="container" style="padding: 70px 0 0 0;">
         @include('partials.flash')
         @yield('content')
     </div>
@@ -173,8 +178,8 @@
                 <div><a href="{{ route('delivery', app()->getLocale()) }}" class="a-green">{{ trans('main.delivery') }}</a></div>
                 <div><a href="{{ route('contacts', app()->getLocale()) }}" class="a-green">{{ trans('main.contacts') }}</a></div>
                 <div style="padding:20px 0 0 0;">
-                    <!--h4 class="wtc">{{ trans('main.Lang') }}</h4-->
-                    <!--
+                <!--h4 class="wtc">{{ trans('main.Lang') }}</h4-->
+                <!--
                     <a href="{{ route('/', 'es') }}"><img src="<?=config('app.url')?>/img/flags/es.png" style="width:20px;" alt="ES" title="ES" /></a> &nbsp;
                     <a href="{{ route('/', 'en') }}"><img src="<?=config('app.url')?>/img/flags/en.png" style="width:20px;" alt="EN" title="EN" /></a> &nbsp;
                     <a href="{{ route('/', 'ru') }}"><img src="<?=config('app.url')?>/img/flags/ru.png" style="width:20px;" alt="RU" title="RU" /></a> &nbsp;
@@ -188,7 +193,7 @@
                 <h4 class="wtc">{{ trans('main.categories') }}</h4>
                 <?php $categories = \App\Models\Api\Category::query()->where(['is_active'=>1,'parent_id'=>0])->get(); ?>
                 <?php foreach($categories as $item): ?>
-                    <div><a href="{{ route('category', ['locale' => app()->getLocale(), 'path' => $item->slug]) }}" class="a-green">{{ $item->title }}</a></div>
+                <div><a href="{{ route('category', ['locale' => app()->getLocale(), 'path' => $item->slug]) }}" class="a-green">{{ $item->title }}</a></div>
                 <?php endforeach; ?>
             </div>
             <div class="col-md-4">

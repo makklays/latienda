@@ -52,4 +52,7 @@ Route::group([
 
     Route::get('/verify', ['as' => 'verify', 'uses' => 'App\Http\Controllers\Web\AuthController@verify']);
     Route::get('/logout', ['as' => 'logout', 'uses' => 'App\Http\Controllers\Web\AuthController@logout']);
+
+    // Dashboard
+    Route::get('/dashboard/home', ['as' => 'da_home', 'uses' => 'App\Http\Controllers\Web\DashboardController@home']);
 });

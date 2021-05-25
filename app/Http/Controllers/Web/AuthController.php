@@ -28,17 +28,16 @@ class AuthController extends Controller
 
     public function loginProcess(LoginRequest $request)
     {
-        $password = Hash::make($request->get('password'));
-        $email = $request->get('email');
+        $user_data = array(
+            'email'  => $request->get('email'),
+            'password' => $request->get('password')
+        );
 
-        $user = User::query()->where(['email' => $email, 'password' => $password])->first();
-
-        //dd($user);
-        //exit;
-
-        return view('auth.login', [
-            'user' => $user,
-        ]);
+        if (Auth::attempt($user_data)) {
+            return redirect( route('da_home', app()->getLocale()) );
+        } else {
+            return back()->with('error', 'Wrong Login Details');
+        }
     }
 
     public function register(Request $request)
@@ -52,21 +51,47 @@ class AuthController extends Controller
 
     public function registerProcess(RegisterRequest $request)
     {
-        $name = $request->get('name');
-        $password = Hash::make($request->get('password'));
-        $email = $request->get('email');
-
+        // add User
         $user = User::query()->create([
-            'name' => $name,
-            'email' => $email,
-            'password' => $password,
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'password' => Hash::make($request->get('password')),
         ]);
 
-        //dd($user);
-        //exit;
+        // Login y enviar el correo
+        if (!empty($user)) {
+            // Envia el correo con Jobs-queue
+            // todo
+
+            $user_data = array(
+                'email'  => $request->get('email'),
+                'password' => $request->get('password')
+            );
+
+            if (Auth::attempt($user_data)) {
+                return redirect( route('da_home', app()->getLocale()) );
+            } else {
+                return back()->with('error', 'Wrong Login Details');
+            }
+        }
 
         return view('auth.register', [
             'user' => $user,
         ]);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect( route('/', app()->getLocale() ) );
+    }
+
+    public function verify(Request $request)
+    {
+        // Enviar el correo
+        // todo
+        dd($request);
+
+        return redirect( route('/', app()->getLocale() ) );
     }
 }
