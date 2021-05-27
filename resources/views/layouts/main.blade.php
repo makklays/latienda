@@ -106,8 +106,13 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
-                <a href="{{ route('login', app()->getLocale()) }}">Sign In</a> &nbsp;&nbsp;
-                <a href="{{ route('register', app()->getLocale()) }}">Sign Up</a> &nbsp;&nbsp;
+                <?php if (!empty(\Auth::user()->email)): ?>
+                    <a href="{{ route('da_home', app()->getLocale()) }}">{{ \Auth::user()->name }}</a> &nbsp;&nbsp;
+                    <a href="{{ route('logout', app()->getLocale()) }}">{{ trans('main.Logout') }}</a> &nbsp;&nbsp;
+                <?php else: ?>
+                    <a href="{{ route('login', app()->getLocale()) }}">{{ trans('main.Sign In') }}</a> &nbsp;&nbsp;
+                    <a href="{{ route('register', app()->getLocale()) }}">{{ trans('main.Sign Up') }}</a> &nbsp;&nbsp;
+                <?php endif; ?>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
