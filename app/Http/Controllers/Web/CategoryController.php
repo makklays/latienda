@@ -6,6 +6,7 @@ use App\Facades\Seo;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\CategoryRequest;
 use App\Models\Api\Category;
+use App\Models\Product;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -60,11 +61,17 @@ class CategoryController extends Controller
             }
         }
 
+        // Products con el Category
+        $products = Product::query()->where(['is_active' => '1', 'category_id' => $category->id])->paginate(3);
+
+        //dd($products);
+
         return view('categories.show', [
             'seo' => $seo,
             'cats' => $cats,
             'category' => $category,
             'category_children' => $category_children,
+            'products' => $products,
         ]);
     }
 }
