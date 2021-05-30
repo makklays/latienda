@@ -19,6 +19,7 @@
             <br/>
             <a href="{{ route('da_status', app()->getLocale()) }}">{{ trans('main.dashboard_orders') }}</a>
             <br/>
+            <a href="{{ route('da_cart', app()->getLocale()) }}">{{ trans('main.dashboard_cart') }}</a>
             <br/>
             <br/>
             <br/>

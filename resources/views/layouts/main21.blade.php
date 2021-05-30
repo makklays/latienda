@@ -106,6 +106,8 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                <a href="{{ route('cart', app()->getLocale()) }}">{{ trans('main.cart') }}</a> &nbsp;&nbsp;
                 <?php if (!empty(\Auth::user()->email)): ?>
                     <a href="{{ route('da_home', app()->getLocale()) }}">{{ \Auth::user()->name }}</a> &nbsp;&nbsp;
                     <a href="{{ route('logout', app()->getLocale()) }}">{{ trans('main.Logout') }}</a> &nbsp;&nbsp;
@@ -121,7 +123,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="width:70px !important; min-width:10px;">
 
-                        <?php if (\Route::current()->getName() == 'category' && $slug = request()->segment(3)): ?>
+                        <?php if ( in_array(\Route::current()->getName(), ['category', 'product']) && $slug = request()->segment(3)): ?>
                         <?php if (app()->getLocale() != 'es'): ?>
                         <a href="{{ route( \Route::current()->getName(), ['es', $slug]) }}" class="dropdown-item green-bk"><img src="<?=config('app.url')?>/img/flags/es.png" class="mlimg" alt="ES" title="ES" /></a>
                         <?php endif; ?>

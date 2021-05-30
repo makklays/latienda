@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.main21')
 
 @section('content')
 
@@ -11,7 +11,28 @@
 
     <div class="row">
         <div class="col-md-12">
-            <br/><h1 class="text-center text-design2">{{ trans('main.show') }}</h1> <br/>
+            <br/><h1 class="text-center text-design2">{{ $product->title }}</h1> <br/>
+
+            <br/>
+            Code: {{ $product->sku }}
+            <br/>
+            {{ $product->price }} EUR
+            <br/>
+            {{ $product->full_description }}
+
+            <br/>
+            <br/>
+            <form action="{{ route('add_to_cart', app()->getLocale()) }}" method="POST">
+                @csrf
+                <input type="hidden" name="sku" value="{{ $product->sku }}" />
+                <input type="hidden" name="quantity" value="5" />
+                <input type="submit" value="Add to cart" />
+            </form>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
         </div>
     </div>
 
