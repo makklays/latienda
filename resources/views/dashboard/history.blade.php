@@ -5,7 +5,8 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('/', app()->getLocale()) }}" class="a-green"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-            <li class="breadcrumb-item" aria-current="page">{{ trans('main.dashboard') }}</li>
+            <li class="breadcrumb-item"><a href="{{ route('da_home', app()->getLocale()) }}" class="a-green">{{ trans('main.dashboard') }}</a></li>
+            <li class="breadcrumb-item" aria-current="page">{{ trans('main.dashboard_history') }}</li>
         </ol>
     </nav>
 
@@ -13,11 +14,9 @@
         <div class="col-md-12">
 
             <br/>
-            {{ $user->name }} / {{ $user->email }} <div style="color:grey;">{{ !empty($user->email_verified_at) ? '' : trans('main.Dont_confirm_email') }}</div>
+            {{ $user->name }} / {{ $user->email }}
             <br/>
-            <a href="{{ route('da_history', app()->getLocale()) }}">{{ trans('main.dashboard_history') }}</a>
             <br/>
-            <a href="{{ route('da_status', app()->getLocale()) }}">{{ trans('main.dashboard_orders') }}</a>
             <br/>
             <br/>
             <br/>
