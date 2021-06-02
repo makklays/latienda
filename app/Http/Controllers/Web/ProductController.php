@@ -20,22 +20,40 @@ class ProductController extends Controller
 
         $product = Product::query()->where(['is_active' => 1, 'parent_id' => 0])->get();
 
-        return view('product', [
+        return view('products.index', [
             'products' => $product,
             'seo' => $seo
         ]);
     }
 
     // Page - One product
-    public function show(Request $request, $id)
+    public function show(Request $request, $locale, $slug)
     {
         $seo = Seo::metaTags('one_product');
 
-        $product = Product::query()->where(['is_active' => 1, 'id' => $id])->get();
+        $product = Product::query()->where(['is_active' => '1', 'slug' => $slug])->firstOrFail();
 
-        return view('product', [
+        if (empty($product->title)) {
+            return redirect('404');
+        }
+
+        // re-hacera (!!!) tarde
+        $cat_parent = '';
+        $cat = Category::query()->where(['is_active' => '1', 'id' => $product->category_id])->first();
+        if (!empty($cat)) {
+            $cat->full_path = $cat->slug;
+            $cat_parent = Category::query()->where(['is_active' => '1', 'id' => $cat->parent_id])->first();
+            if (!empty($cat_parent)) {
+                $cat->full_path = $cat_parent->slug . '/' . $cat->slug;
+                $cat_parent->full_path = $cat_parent->slug;
+            }
+        }
+
+        return view('products.show', [
             'product' => $product,
             'seo' => $seo,
+            'cat' => $cat,
+            'cat_parent' => $cat_parent,
         ]);
     }
 }
