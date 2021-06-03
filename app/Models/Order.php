@@ -13,6 +13,7 @@ class Order extends Model
         'user_id',
         'd_order_status_id',
         'total_price',
+        'count_products',
         'd_delivery_id',
         'd_payment_id',
         'address',
