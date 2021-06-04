@@ -79,7 +79,28 @@ Route::group([
 
     // Payments
     Route::get('/purchase', ['as' => 'purchase', 'uses' => 'App\Http\Controllers\Web\PaymentController@purchase']);
+    Route::post('/purchase_process', ['as' => 'purchase_process', 'uses' => 'App\Http\Controllers\Web\PaymentController@purchaseProcess']);
     Route::get('/p-success', ['as' => 'success', 'uses' => 'App\Http\Controllers\Web\PaymentController@success']);
     Route::get('/p-cancel', ['as' => 'cancel', 'uses' => 'App\Http\Controllers\Web\PaymentController@cancel']);
     Route::get('/p-checkout', ['as' => 'checkout', 'uses' => 'App\Http\Controllers\Web\PaymentController@checkout']);
+
+    // Adminka
+    Route::get('/admin', ['as' => 'da_admin', 'uses' => 'App\Http\Controllers\Admin\AdminController@home']);
+
+    Route::get('/admin/categories', ['as' => 'adm_category', 'uses' => 'App\Http\Controllers\Admin\CategoryController@index']);
+    Route::match(['post','get'], '/admin/category/add', ['as' => 'adm_category_add', 'uses' => 'App\Http\Controllers\Admin\CategoryController@add']);
+    Route::get('/admin/category/show/{id}', ['as' => 'adm_category_show', 'uses' => 'App\Http\Controllers\Admin\CategoryController@show', 'where' => ['id' => '.+']]);
+    Route::get('/admin/category/edit/{id}', ['as' => 'adm_category_edit', 'uses' => 'App\Http\Controllers\Admin\CategoryController@edit', 'where' => ['id' => '.+']]);
+    Route::get('/admin/category/delete/{id}', ['as' => 'adm_category_delete', 'uses' => 'App\Http\Controllers\Admin\CategoryController@delete', 'where' => ['id' => '.+']]);
+
+    Route::get('/admin/products', ['as' => 'adm_product', 'uses' => 'App\Http\Controllers\Admin\ProductController@index']);
+    Route::get('/admin/product/add', ['as' => 'adm_product_add', 'uses' => 'App\Http\Controllers\Admin\ProductController@add']);
+    Route::get('/admin/product/show/{id}', ['as' => 'adm_product_show', 'uses' => 'App\Http\Controllers\Admin\ProductController@show', 'where' => ['id' => '.+']]);
+    Route::get('/admin/product/edit/{id}', ['as' => 'adm_product_edit', 'uses' => 'App\Http\Controllers\Admin\ProductController@edit', 'where' => ['id' => '.+']]);
+    Route::get('/admin/product/delete/{id}', ['as' => 'adm_product_delete', 'uses' => 'App\Http\Controllers\Admin\ProductController@delete', 'where' => ['id' => '.+']]);
+
+    Route::get('/admin/orders', ['as' => 'adm_orders', 'uses' => 'App\Http\Controllers\Admin\OrderController@index']);
+    Route::get('/admin/order/{id}', ['as' => 'adm_order', 'uses' => 'App\Http\Controllers\Admin\OrderController@show', 'where' => ['id' => '.+']]);
+
+
 });

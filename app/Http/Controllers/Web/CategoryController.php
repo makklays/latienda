@@ -62,7 +62,7 @@ class CategoryController extends Controller
         }
 
         // Products con el Category
-        $products = Product::query()->where(['is_active' => '1', 'category_id' => $category->id])->paginate(3);
+        $products = Product::query()->where(['is_active' => '1', 'category_id' => $category->id])->paginate(12);
 
         //dd($products);
 

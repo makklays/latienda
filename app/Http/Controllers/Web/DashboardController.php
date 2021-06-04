@@ -24,8 +24,41 @@ class DashboardController extends Controller
         $user = Auth::user();
 
         return view('dashboard.home', [
-            'user' => $user,
             'seo' => $seo,
+            'user' => $user,
+        ]);
+    }
+
+    public function history()
+    {
+        $seo = Seo::metaTags('dashboard_history');
+
+        //$orders = Order::query()->where([''])->get();
+
+        //
+        $user = Auth::user();
+
+        return view('dashboard.history', [
+            'seo' => $seo,
+            'user' => $user,
+            //'orders' => $orders,
+        ]);
+    }
+
+    // Pagina - Estados de la órdener
+    public function statusesOrders()
+    {
+        $seo = Seo::metaTags('dashboard_orders');
+
+        //$orders = Order::query()->where([''])->get();
+        $orders = '';
+
+        $user = Auth::user();
+
+        return view('dashboard.status', [
+            'seo' => $seo,
+            'orders' => $orders,
+            'user' => $user,
         ]);
     }
 }

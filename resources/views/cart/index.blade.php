@@ -45,7 +45,8 @@
 
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <form action="{{ route('purchase', ['locale' => app()->getLocale()]) }}" method="post">
+                    <form action="{{ route('purchase_process', ['locale' => app()->getLocale()]) }}" method="post">
+                        @csrf
                         <input type="hidden" value="{{ $order->id }}" />
                         <input type="submit" value="Purchase" />
                     </form>

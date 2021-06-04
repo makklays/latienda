@@ -19,37 +19,61 @@
         <div class="col-md-12">
             <br/><h1 class="text-center text-design2">{{ $product->title }}</h1> <br/>
         </div>
-        <div class="col-md-6">
-            <?php if(!empty($product->img)): ?>
-                <img src="{{ asset('storage/products/'.$product->id.'/'.$product->img) }}" alt="." title="{{ env('APP_NAME') }} | {{ $product->title }}" />
-            <?php else: ?>
-                <img src="{{ asset('storage/nofoto.png') }}" alt="." title="{{ env('APP_NAME') }} | {{ $product->title }}" />
-            <?php endif; ?>
-        </div>
-        <div class="col-md-6">
-            <br/><h1 class="text-center text-design2">{{ $product->title }}</h1> <br/>
 
-            <br/>
-            Code: {{ $product->sku }}
-            <br/>
-            {{ $product->price }} EUR
-            <br/>
-            {{ $product->full_description }}
+        <div class="col-md-12">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Description</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="row" style="padding: 30px 0 50px 0;">
+                        <div class="col-md-6">
+                            <?php if(!empty($product->img)): ?>
+                            <img class="img img--fullwidth" src="{{ asset('storage/products/'.$product->id.'/'.$product->img) }}" alt="..." title="{{ env('APP_NAME') }} | {{ $product->title }}" />
+                            <?php else: ?>
+                            <img class="img img--fullwidth" src="{{ asset('storage/nofoto.png') }}" alt="no-foto" title="{{ env('APP_NAME') }} | {{ $product->title }}" />
+                            <?php endif; ?>
+                        </div>
+                        <div class="col-md-6">
+                            <strong style="color:grey; font-size:14px;">Code: {{ $product->sku }}</strong>
+                            <br/>
+                            <?= nl2br($product->description) ?>
+                            <br/><br/>
+                            Price: {{ $product->price }} EUR     <strike style="font-size:16px; color:grey;">{{ $product->old_price }} EUR</strike>
+                            <br/><br/>
+                            <form action="{{ route('add_to_cart', app()->getLocale()) }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="sku" value="{{ $product->sku }}" />
+                                <input type="hidden" name="quantity" value="5" />
+                                <input type="submit" value="Add to cart" />
+                            </form>
+                            <br/>
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="row" style="padding: 30px 0 50px 0;">
+                        <div class="col-md-12">
+                            <?= nl2br($product->full_description) ?>
+                        </div>
+                    </div>
+                </div>
 
-            <br/>
-            <br/>
-            <form action="{{ route('add_to_cart', app()->getLocale()) }}" method="POST">
-                @csrf
-                <input type="hidden" name="sku" value="{{ $product->sku }}" />
-                <input type="hidden" name="quantity" value="5" />
-                <input type="submit" value="Add to cart" />
-            </form>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+            </div>
         </div>
     </div>
+
+    <script>
+        $('#myTab a').on('click', function (event) {
+            event.preventDefault()
+            $(this).tab('show')
+        });
+    </script>
 
 @endsection

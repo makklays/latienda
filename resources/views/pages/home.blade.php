@@ -15,4 +15,11 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-12">
+            <img src="{{ asset('images/111.png') }}" title="Slon" alt="slon" />
+            <img src="{{ asset('storage/111.png') }}" title="Slon" alt="slon" />
+        </div>
+    </div>
+
 @endsection

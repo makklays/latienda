@@ -39,9 +39,15 @@ class AuthController extends Controller
 
         if (Auth::attempt($user_data)) {
 
+            //dd(Auth::user()->id);
 
-            // auth with user's locale (lang)
-            return redirect( route('da_home', Auth::user()->locale) );
+            // Si es Admino
+            if (Auth::user()->id == 24) {
+                return redirect( route('da_admin', Auth::user()->locale) );
+            } else {
+                // auth with user's locale (lang)
+                return redirect( route('da_home', Auth::user()->locale) );
+            }
         } else {
             return back()->with('error', 'Wrong Login Details');
         }

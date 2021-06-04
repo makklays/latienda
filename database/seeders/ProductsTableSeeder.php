@@ -21,20 +21,24 @@ class ProductsTableSeeder extends Seeder
 
         $delivery = [
             [
-                'sku' => '2021-1',
+                'sku' => '2021-1-1',
                 'category_id' => 36,
                 'title' => 'Gerberas Blanka',
                 'slug' => 'gerberas-blanca',
-                'description' => '',
-                'full_description' => '',
+                'description' => 'Description gerberas-roja. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.',
                 'price' => '100.00',
                 'old_price' => '110.00',
                 //'img' => '',
                 'quantity' => '24',
-                'is_active' => 1,
+                'is_active' => '1',
             ],
             [
-                'sku' => '2021-1',
+                'sku' => '2021-1-17',
                 'category_id' => 36,
                 'title' => 'Gerberas Roja',
                 'slug' => 'gerberas-roja',
@@ -59,10 +63,10 @@ class ProductsTableSeeder extends Seeder
                 'old_price' => '115.00',
                 //'img' => '',
                 'quantity' => '24',
-                'is_active' => 1,
+                'is_active' => '1',
             ],
             [
-                'sku' => '2021-1',
+                'sku' => '2021-1-19',
                 'category_id' => 36,
                 'title' => 'Gerberas Roja',
                 'slug' => 'gerberas-roja',
@@ -87,10 +91,10 @@ class ProductsTableSeeder extends Seeder
                 'old_price' => '115.00',
                 //'img' => '',
                 'quantity' => '24',
-                'is_active' => 1,
+                'is_active' => '1',
             ],
             [
-                'sku' => '2021-1',
+                'sku' => '2021-1-20',
                 'category_id' => 36,
                 'title' => 'Gerberas Roja1',
                 'slug' => 'gerberas-roja1',
@@ -115,10 +119,10 @@ class ProductsTableSeeder extends Seeder
                 'old_price' => '115.50',
                 //'img' => '',
                 'quantity' => '24',
-                'is_active' => 1,
+                'is_active' => '1',
             ],
             [
-                'sku' => '2021-1',
+                'sku' => '2021-1-21',
                 'category_id' => 36,
                 'title' => 'Gerberas Roja2',
                 'slug' => 'gerberas-roja2',
@@ -143,7 +147,568 @@ class ProductsTableSeeder extends Seeder
                 'old_price' => '125.00',
                 //'img' => '',
                 'quantity' => '24',
-                'is_active' => 1,
+                'is_active' => '1',
+            ],
+
+            [
+                'sku' => '2021-1-22',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja21',
+                'slug' => 'gerberas-roja21',
+                'description' => 'Description gerberas-roja2. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '11.00',
+                'old_price' => '12.00',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-23',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja22',
+                'slug' => 'gerberas-roja22',
+                'description' => 'Description gerberas-roja2. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '11.00',
+                'old_price' => '15.00',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-24',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja23',
+                'slug' => 'gerberas-roja23',
+                'description' => 'Description gerberas-roja23. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '13.00',
+                'old_price' => '13.00',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-25',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja25',
+                'slug' => 'gerberas-roja25',
+                'description' => 'Description gerberas-roja2. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '114.00',
+                'old_price' => '115.00',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-26',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja26',
+                'slug' => 'gerberas-roja26',
+                'description' => 'Description gerberas-roja26. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '10.00',
+                'old_price' => '10.50',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-18',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja18',
+                'slug' => 'gerberas-roja18',
+                'description' => 'Description gerberas-roja2. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '114.00',
+                'old_price' => '115.00',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-219',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja219',
+                'slug' => 'gerberas-roja219',
+                'description' => 'Description gerberas-roja2. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '114.00',
+                'old_price' => '115.00',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-250',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja250',
+                'slug' => 'gerberas-roja250',
+                'description' => 'Description gerberas-roja2. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '114.00',
+                'old_price' => '115.00',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-30',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja30',
+                'slug' => 'gerberas-roja30',
+                'description' => 'Description gerberas-roja2. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '30.00',
+                'old_price' => '31.00',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-31',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja31',
+                'slug' => 'gerberas-roja31',
+                'description' => 'Description gerberas-roja2. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '31.00',
+                'old_price' => '31.00',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-32',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja32',
+                'slug' => 'gerberas-roja32',
+                'description' => 'Description gerberas-roja2. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '32.00',
+                'old_price' => '32.00',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-33',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja33',
+                'slug' => 'gerberas-roja33',
+                'description' => 'Description gerberas-roja2. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '33.00',
+                'old_price' => '33.00',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-34',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja34',
+                'slug' => 'gerberas-roja34',
+                'description' => 'Description gerberas-roja2. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '34.00',
+                'old_price' => '34.00',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-35',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja35',
+                'slug' => 'gerberas-roja35',
+                'description' => 'Description gerberas-roja2. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '35.00',
+                'old_price' => '35.00',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-36',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja36',
+                'slug' => 'gerberas-roja36',
+                'description' => 'Description gerberas-roja2. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '36.00',
+                'old_price' => '36.00',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-37',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja37',
+                'slug' => 'gerberas-roja37',
+                'description' => 'Description gerberas-roja2. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '37.00',
+                'old_price' => '37.00',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-38',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja38',
+                'slug' => 'gerberas-roja38',
+                'description' => 'Description gerberas-roja2. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '38.00',
+                'old_price' => '38.00',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-39',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja39',
+                'slug' => 'gerberas-roja39',
+                'description' => 'Description gerberas-roja2. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '39.00',
+                'old_price' => '39.50',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-40',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja40',
+                'slug' => 'gerberas-roja40',
+                'description' => 'Description gerberas-roja2. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '40.00',
+                'old_price' => '40.50',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
+            ],
+            [
+                'sku' => '2021-1-41',
+                'category_id' => 36,
+                'title' => 'Gerberas Roja 41',
+                'slug' => 'gerberas-roja 41',
+                'description' => 'Description gerberas-roja2. Description gerberas-roja. Description gerberas-roja.
+                Description gerberas-roja. Description gerberas-roja. Description gerberas-roja. ',
+                'full_description' => 'Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. Full description gerberas-roja.
+                Full description gerberas-roja. Full description gerberas-roja. ',
+                'price' => '41.00',
+                'old_price' => '42.00',
+                //'img' => '',
+                'quantity' => '24',
+                'is_active' => '1',
             ],
         ];
         foreach ($delivery as $k => $item) {
