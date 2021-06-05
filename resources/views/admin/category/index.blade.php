@@ -36,11 +36,11 @@
                         <td>{{ $item->parent_id }}</td>
                         <td>{{ $item->title }}</td>
                         <td>{{ $item->slug }}</td>
-                        <td>{{ $item->is_active }}</td>
+                        <td>{{ $item->is_active == 1 ? 'Yes' : 'No' }}</td>
                         <td>
                             <a href="{{ route('adm_category_show', [app()->getLocale(), 'id' => $item->id]) }}">View</a>
                             <a href="{{ route('adm_category_edit', [app()->getLocale(), 'id' => $item->id]) }}">Edit</a>
-                            <a href="{{ route('adm_category_delete', [app()->getLocale(), 'id' => $item->id]) }}">Delete</a>
+                            <a href="{{ route('adm_category_delete', [app()->getLocale(), 'id' => $item->id]) }}" onclick="javascript: confirm('Are you want to delete this category ID={{ $item->id }} ?');">Delete</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

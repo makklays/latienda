@@ -34,9 +34,9 @@
                     <div class="row" style="padding: 30px 0 50px 0;">
                         <div class="col-md-6">
                             <?php if(!empty($product->img)): ?>
-                            <img class="img img--fullwidth" src="{{ asset('storage/products/'.$product->id.'/'.$product->img) }}" alt="..." title="{{ env('APP_NAME') }} | {{ $product->title }}" />
+                                <img class="img img--fullwidth" src="{{ asset('storage/products/'.$product->id.'/'.$product->img) }}" title="{{ env('APP_NAME') }} | {{ $product->title }}" alt="..." />
                             <?php else: ?>
-                            <img class="img img--fullwidth" src="{{ asset('storage/nofoto.png') }}" alt="no-foto" title="{{ env('APP_NAME') }} | {{ $product->title }}" />
+                                <img class="img img--fullwidth" src="{{ asset('storage/111.png') }}" title="{{ env('APP_NAME') }} | {{ $product->title }}" alt="no-foto" />
                             <?php endif; ?>
                         </div>
                         <div class="col-md-6">

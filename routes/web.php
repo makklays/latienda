@@ -88,9 +88,11 @@ Route::group([
     Route::get('/admin', ['as' => 'da_admin', 'uses' => 'App\Http\Controllers\Admin\AdminController@home']);
 
     Route::get('/admin/categories', ['as' => 'adm_category', 'uses' => 'App\Http\Controllers\Admin\CategoryController@index']);
-    Route::match(['post','get'], '/admin/category/add', ['as' => 'adm_category_add', 'uses' => 'App\Http\Controllers\Admin\CategoryController@add']);
+    Route::get('/admin/category/add', ['as' => 'adm_category_add', 'uses' => 'App\Http\Controllers\Admin\CategoryController@add']);
+    Route::post('/admin/category/add_process', ['as' => 'adm_category_add_process', 'uses' => 'App\Http\Controllers\Admin\CategoryController@add_process']);
     Route::get('/admin/category/show/{id}', ['as' => 'adm_category_show', 'uses' => 'App\Http\Controllers\Admin\CategoryController@show', 'where' => ['id' => '.+']]);
     Route::get('/admin/category/edit/{id}', ['as' => 'adm_category_edit', 'uses' => 'App\Http\Controllers\Admin\CategoryController@edit', 'where' => ['id' => '.+']]);
+    Route::post('/admin/category/edit_process/{id}', ['as' => 'adm_category_edit_process', 'uses' => 'App\Http\Controllers\Admin\CategoryController@edit_process', 'where' => ['id' => '.+']]);
     Route::get('/admin/category/delete/{id}', ['as' => 'adm_category_delete', 'uses' => 'App\Http\Controllers\Admin\CategoryController@delete', 'where' => ['id' => '.+']]);
 
     Route::get('/admin/products', ['as' => 'adm_product', 'uses' => 'App\Http\Controllers\Admin\ProductController@index']);
