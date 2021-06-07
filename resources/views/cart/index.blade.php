@@ -22,10 +22,10 @@
                             <a href="{{ route('product', ['locale' => app()->getLocale(), 'slug' => $item->slug]) }}" >{{ $item->title }}</a>
                         </div>
                         <div class="col-md-3">
-                            {{ $item->quantity }} шт. / {{ $item->price }} EUR
+                            {{ $item->quantity }} шт. / {{ $item->price }} €
                         </div>
                         <div class="col-md-3 text-right">
-                            {{ $item->quantity * $item->price }} EUR
+                            {{ $item->quantity * $item->price }} €
                             <a href="{{ route('delete-from-cart', ['locale' => app()->getLocale(), 'order_product_id' => $item->id]) }}" >Delete</a>
                         </div>
                         <?php $i++; ?>
@@ -39,7 +39,7 @@
             <?php if (!empty($order)): ?>
                 <div class="row">
                     <div class="col-md-10 text-right">Total: </div>
-                    <div class="col-md-2 text-right">{{ $order->total_price }} EUR</div>
+                    <div class="col-md-2 text-right">{{ $order->total_price }} €</div>
                 </div>
             <?php endif; ?>
 
@@ -48,7 +48,7 @@
                     <form action="{{ route('purchase_process', ['locale' => app()->getLocale()]) }}" method="post">
                         @csrf
                         <input type="hidden" value="{{ $order->id }}" />
-                        <input type="submit" value="Purchase" />
+                        <input type="submit" class="btn btn-success" value="Purchase" />
                     </form>
                 </div>
             </div>

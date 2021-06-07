@@ -107,7 +107,7 @@
             </ul>
             <ul class="navbar-nav">
                 <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                <a href="{{ route('cart', app()->getLocale()) }}">{{ trans('main.cart') }}</a> &nbsp;&nbsp;
+                <a href="{{ route('cart', app()->getLocale()) }}"><!--{{ trans('main.cart') }}--> <span class="badge badge-pill badge-success">5</span></a> &nbsp;&nbsp;
                 <?php if (!empty(\Auth::user()->email)): ?>
                     <a href="{{ route('da_home', app()->getLocale()) }}">{{ \Auth::user()->name }}</a> &nbsp;&nbsp;
                     <a href="{{ route('logout', app()->getLocale()) }}">{{ trans('main.Logout') }}</a> &nbsp;&nbsp;

@@ -32,29 +32,56 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="row" style="padding: 30px 0 50px 0;">
+
                         <div class="col-md-6">
-                            <?php if(!empty($product->img)): ?>
-                                <img class="img img--fullwidth" src="{{ asset('storage/products/'.$product->id.'/'.$product->img) }}" title="{{ env('APP_NAME') }} | {{ $product->title }}" alt="..." />
-                            <?php else: ?>
-                                <img class="img img--fullwidth" src="{{ asset('storage/111.png') }}" title="{{ env('APP_NAME') }} | {{ $product->title }}" alt="no-foto" />
-                            <?php endif; ?>
+
+                            <div>
+                                <?php if(!empty($product->img)): ?>
+                                    <?php $imgs = json_decode($product->img); ?>
+                                    <?php foreach($imgs as $k => $img_name): ?>
+                                        <?php if($k == 1): ?>
+                                            <a href="{{ route('product', ['slug' => $product->slug, 'locale' => app()->getLocale()]) }}" >
+                                                <img src="{{ asset('products/'.$product->id.'/'.$img_name) }}" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $product->title }}" alt="..." />
+                                            </a>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <img src="{{ asset('images/no-logo.png') }}" style="width:200px;" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $product->title }}" alt="no-foto" />
+                                <?php endif; ?>
+                            </div>
+
+                            <div>
+                                <?php foreach($imgs as $k => $img_name): ?>
+                                <a href="{{ route('product', ['slug' => $product->slug, 'locale' => app()->getLocale()]) }}" >
+                                    <img src="{{ asset('products/'.$product->id.'/'.$img_name) }}" style="width:100px;" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $product->title }}" alt="..." />
+                                </a>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
+
                         <div class="col-md-6">
                             <strong style="color:grey; font-size:14px;">Code: {{ $product->sku }}</strong>
                             <br/>
                             <?= nl2br($product->description) ?>
                             <br/><br/>
-                            Price: {{ $product->price }} EUR     <strike style="font-size:16px; color:grey;">{{ $product->old_price }} EUR</strike>
+                            <strong style="font-size:28px;">{{ $product->price }} €</strong>     <strike style="font-size:18px; color:grey;">{{ $product->old_price }} €</strike>
                             <br/><br/>
+                            <div>
+                                <div id="id-left-price" class="left-price">-</div>
+                                <div id="id-center-price" class="center-price">1</div>
+                                <div id="id-right-price" class="right-price">+</div>
+                            </div>
+                            <br/><br/><br/>
                             <form action="{{ route('add_to_cart', app()->getLocale()) }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="sku" value="{{ $product->sku }}" />
-                                <input type="hidden" name="quantity" value="5" />
-                                <input type="submit" value="Add to cart" />
+                                <input id="id-quantity" type="hidden" name="quantity" value="" />
+                                <input type="submit" class="btn btn-success" value="Add to cart" />
                             </form>
                             <br/>
                             <br/>
                         </div>
+
                     </div>
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -67,12 +94,43 @@
 
             </div>
         </div>
+
+        <div class="col-md-12">
+            <h2 class="text-center" style="font-size:50px;">Productos relacionados</h2>
+            <div>
+                ///
+            </div>
+
+            <br/><br/>
+        </div>
     </div>
 
     <script>
         $('#myTab a').on('click', function (event) {
-            event.preventDefault()
-            $(this).tab('show')
+            event.preventDefault();
+            $(this).tab('show');
+        });
+
+        // plus
+        $('#id-right-price').on('click', function(event) {
+            event.preventDefault();
+            var val = $('#id-center-price').html();
+            var new_val = parseInt(val) + 1;
+            $('#id-center-price').html( new_val );
+            $('#id-quantity').val( new_val );
+            return false;
+        });
+
+        // minus
+        $('#id-left-price').on('click', function(event) {
+            event.preventDefault();
+            var val = $('#id-center-price').html();
+            var new_val = parseInt( val ) - 1;
+            if (new_val >= 1) {
+                $('#id-center-price').html( new_val );
+                $('#id-quantity').val( new_val );
+            }
+            return false;
         });
     </script>
 

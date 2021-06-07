@@ -18,8 +18,15 @@
             <div class="col-md-12">
                 <div class="row">
                     <?php foreach($categories as $item): ?>
-                        <div class="col-md-4 text-center">
-                            <img src="/img/{{ $item->img }}" alt="" title="" style="width:200px; height:200px; border-radius:50%; border:2px solid grey;" />
+                        <div class="col-md-4 text-center" style="margin-bottom: 30px;">
+                            <?php if(!empty($item->img) && file_exists(public_path('/../storage/app/categories/'.$item->id.'/'.$item->img))): ?>
+                                <a href="{{ route('category', ['locale' => app()->getLocale(), 'path' => $item->slug]) }}">
+                                    <img src="{{ asset('categories/'.$item->id.'/'.$item->img) }}" style="width:200px; height:200px; border-radius:50%; border:2px solid grey;" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $item->title }}" alt="..." />
+                                </a>
+                            <?php else: ?>
+                                <img src="{{ asset('images/no-logo.png') }}" style="width:200px; height:200px; border-radius:50%; border:2px solid grey;" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $item->title }}" alt="no-foto" />
+                            <?php endif; ?>
+
                             <div><a href="{{ route('category', ['locale' => app()->getLocale(), 'path' => $item->slug]) }}">{{ $item->title }}</a></div>
                             <!--small>12 шт.</small-->
                         </div>

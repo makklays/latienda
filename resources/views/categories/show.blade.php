@@ -35,6 +35,21 @@
             <?php foreach($products as $k => $item): ?>
                 <div class="col-md-4">
                     <div style="padding:20px 0;">
+                        <div class="">
+                            <?php if(!empty($item->img)): ?>
+                                <?php $imgs = json_decode($item->img); ?>
+                                <?php foreach($imgs as $k => $img_name): ?>
+                                    <?php if($k == 1): ?>
+                                        <a href="{{ route('product', ['slug' => $item->slug, 'locale' => app()->getLocale()]) }}" >
+                                            <img src="{{ asset('products/'.$item->id.'/'.$img_name) }}" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $item->title }}" alt="..." />
+                                        </a>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <img src="{{ asset('images/no-logo.png') }}" style="width:200px;" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $item->title }}" alt="no-foto" />
+                            <?php endif; ?>
+                        </div>
+
                         <div>
                             <a href="{{ route('product', ['slug' => $item->slug, 'locale' => app()->getLocale()]) }}" class="a-green" >
                                 {{ $item->title }}
@@ -42,7 +57,7 @@
                         </div>
 
                         <div>
-                            <small style="color: grey;">{{ $item->sku }}</small>
+                            <small style="color:grey; font-size:14px;">{{ $item->sku }}</small>
                         </div>
 
                         <div>{{ $item->description }}</div>
