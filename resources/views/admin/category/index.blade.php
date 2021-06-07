@@ -5,15 +5,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Categories</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group mr-2">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-            </div>
-            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle mr-2">
-                <span class="fa fa-calendar"></span>
-                This week
-            </button>
-            <a href="{{ route('adm_category_add', app()->getLocale()) }}" class="btn btn-sm btn-outline-secondary">Add</a>
+            <a href="{{ route('adm_category_add', app()->getLocale()) }}" class="btn btn-outline-success"><i class="fa fa-plus"></i> Add category</a>
         </div>
     </div>
 
@@ -21,31 +13,41 @@
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Parent ID</th>
+                    <th class="text-center">ID</th>
                     <th>Title</th>
+                    <th>Parent category</th>
                     <th>Slug</th>
-                    <th>Is active</th>
-                    <th>Actions</th>
+                    <th class="text-center">Parent ID</th>
+                    <th class="text-center">Image</th>
+                    <th class="text-center">Is active</th>
+                    <th class="text-center">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach($categories as $k => $item): ?>
                     <tr>
-                        <td>{{ $item->id }}</td>
-                        <td>{{ $item->parent_id }}</td>
+                        <td class="text-center">{{ $item->id }}</td>
                         <td>{{ $item->title }}</td>
+                        <td><?= !empty($item->parent_category->title) ? '<a href="'.route('adm_category_show', [app()->getLocale(), 'id' => $item->parent_category->id]).'">'.$item->parent_category->title.'</a>' : '-' ?></td>
                         <td>{{ $item->slug }}</td>
-                        <td>{{ $item->is_active == 1 ? 'Yes' : 'No' }}</td>
-                        <td>
-                            <a href="{{ route('adm_category_show', [app()->getLocale(), 'id' => $item->id]) }}">View</a>
-                            <a href="{{ route('adm_category_edit', [app()->getLocale(), 'id' => $item->id]) }}">Edit</a>
-                            <a href="{{ route('adm_category_delete', [app()->getLocale(), 'id' => $item->id]) }}" onclick="javascript: confirm('Are you want to delete this category ID={{ $item->id }} ?');">Delete</a>
+                        <td class="text-center">{{ $item->parent_id }}</td>
+                        <td class="text-center"><?= !empty($item->img) ? '<span style="color:green;">Yes</span>' : '<span style="color:red;">No</span>' ?></td>
+                        <td class="text-center"><?= $item->is_active == 1 ? '<span style="color:green;">Yes</span>' : '<span style="color:red;">No</span>' ?></td>
+                        <td class="text-center">
+                            <a href="{{ route('adm_category_show', [app()->getLocale(), 'id' => $item->id]) }}"><i class="fa fa-eye"></i> Preview</a>
+                            <a href="{{ route('adm_category_edit', [app()->getLocale(), 'id' => $item->id]) }}"><i class="fa fa-edit"></i> Edit</a>
+                            <a href="{{ route('adm_category_delete', [app()->getLocale(), 'id' => $item->id]) }}" onclick="javascript: confirm('Are you want to delete this category ID={{ $item->id }} ?');"><i class="fa fa-trash"></i> Delete</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
+
+        <br/>
+
+        {{ $categories->links('pagination::bootstrap-4') }}
+
+        <br/><br/>
     </div>
 
 @endsection

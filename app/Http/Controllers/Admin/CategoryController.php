@@ -14,7 +14,7 @@ class CategoryController extends Controller
     {
         $seo = Seo::metaTags('adm_category');
 
-        $categories = Category::query()->get();
+        $categories = Category::query()->paginate(20);
 
         return view('admin.category.index', [
             'seo' => $seo,
@@ -48,14 +48,13 @@ class CategoryController extends Controller
 
         if (!empty($request->img)) {
 
-            $name = $request->file('img')->getClientOriginalName();
+            //$name = $request->file('img')->getClientOriginalName();
             $extension = $request->file('img')->extension();
+            $new_name = 'category.'.$extension;
+            $path = $request->file('img')->storeAs('categories/'.$category->id, $new_name);
 
-            $path = $request->file('img')->storeAs(
-                'categories', $category->id
-            );
-
-            dd( $path );
+            $category->img = $new_name;
+            $category->save();
         }
 
         return redirect( route('adm_category', app()->getLocale()) )
@@ -90,8 +89,17 @@ class CategoryController extends Controller
         $category->slug = $request->slug;
         $category->parent_id = $request->category_id;
         $category->description = $request->description;
-        $category->is_active = !empty($request->is_active) ? 1 : 0;
+        $category->is_active = !empty($request->is_active) ? '1' : '0';
         $category->save();
+
+        // guarda img
+        if (!empty($request->img)) {
+            $extension = $request->file('img')->extension();
+            $new_name = 'category.'.$extension;
+            $path = $request->file('img')->storeAs('categories/'.$category->id, $new_name);
+            $category->img = $new_name;
+            $category->save();
+        }
 
         return redirect( route('adm_category', [app()->getLocale(), 'id' => $request->id]) )
             ->with('flash_message', 'Category was edit suceessfully!')
@@ -104,6 +112,8 @@ class CategoryController extends Controller
         $seo = Seo::metaTags('adm_category_add');
 
         $category = Category::query()->where(['id' => $id])->first();
+
+        //dd($category->children_category, $category->title);
 
         return view('admin.category.show', [
             'seo' => $seo,

@@ -72,7 +72,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ in_array(\Route::current()->getName(), ['adm_orders','adm_orders_add','adm_orders_edit','adm_orders_show','adm_orders_delete']) ? 'active' : '' }}" href="{{ route('adm_orders', app()->getLocale()) }}">
+                            <a class="nav-link {{ in_array(\Route::current()->getName(), ['adm_orders','adm_order_add','adm_order_edit','adm_order_show','adm_order_delete']) ? 'active' : '' }}" href="{{ route('adm_orders', app()->getLocale()) }}">
                                 <span class="fa fa-file"></span>
                                 Orders
                             </a>
@@ -90,7 +90,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ in_array(\Route::current()->getName(), ['adm_customers','adm_customers_add','adm_customers_edit','adm_customers_show','adm_customers_delete']) ? 'active' : '' }}" href="#">
+                            <a class="nav-link {{ in_array(\Route::current()->getName(), ['adm_customers','adm_customer_add','adm_customer_edit','adm_customer_show','adm_customer_delete']) ? 'active' : '' }}" href="#">
                                 <span class="fa fa-users"></span>
                                 Customers
                             </a>

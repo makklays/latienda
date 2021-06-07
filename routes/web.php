@@ -97,12 +97,16 @@ Route::group([
 
     Route::get('/admin/products', ['as' => 'adm_product', 'uses' => 'App\Http\Controllers\Admin\ProductController@index']);
     Route::get('/admin/product/add', ['as' => 'adm_product_add', 'uses' => 'App\Http\Controllers\Admin\ProductController@add']);
+    Route::post('/admin/product/add_process', ['as' => 'adm_product_add_process', 'uses' => 'App\Http\Controllers\Admin\ProductController@add_process']);
     Route::get('/admin/product/show/{id}', ['as' => 'adm_product_show', 'uses' => 'App\Http\Controllers\Admin\ProductController@show', 'where' => ['id' => '.+']]);
     Route::get('/admin/product/edit/{id}', ['as' => 'adm_product_edit', 'uses' => 'App\Http\Controllers\Admin\ProductController@edit', 'where' => ['id' => '.+']]);
+    Route::post('/admin/product/edit_process/{id}', ['as' => 'adm_product_edit_process', 'uses' => 'App\Http\Controllers\Admin\ProductController@edit_process', 'where' => ['id' => '.+']]);
     Route::get('/admin/product/delete/{id}', ['as' => 'adm_product_delete', 'uses' => 'App\Http\Controllers\Admin\ProductController@delete', 'where' => ['id' => '.+']]);
 
     Route::get('/admin/orders', ['as' => 'adm_orders', 'uses' => 'App\Http\Controllers\Admin\OrderController@index']);
-    Route::get('/admin/order/{id}', ['as' => 'adm_order', 'uses' => 'App\Http\Controllers\Admin\OrderController@show', 'where' => ['id' => '.+']]);
+    Route::get('/admin/order/show/{id}', ['as' => 'adm_order_show', 'uses' => 'App\Http\Controllers\Admin\OrderController@show', 'where' => ['id' => '.+']]);
+    Route::get('/admin/order/edit/{id}', ['as' => 'adm_order_edit', 'uses' => 'App\Http\Controllers\Admin\OrderController@edit', 'where' => ['id' => '.+']]);
+    Route::post('/admin/order/edit_process/{id}', ['as' => 'adm_order_edit_process', 'uses' => 'App\Http\Controllers\Admin\OrderController@edit_process', 'where' => ['id' => '.+']]);
 
-
+    Route::get('/admin/customer/show/{id}', ['as' => 'adm_customer_show', 'uses' => 'App\Http\Controllers\Admin\CustomerController@show', 'where' => ['id' => '.+']]);
 });

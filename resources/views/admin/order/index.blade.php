@@ -20,32 +20,33 @@
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
-                    <th>#ID</th>
+                    <th class="text-center">ID</th>
                     <th>Customer</th>
-                    <th>Count</th>
-                    <th>Status</th>
-                    <th>Total</th>
+                    <th class="text-center">Status</th>
                     <th>Note</th>
-                    <th>Actions</th>
+                    <th class="text-center">Total (USD)
+                    <th>Count</th>
+                    <th class="text-center">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach($orders as $k => $item): ?>
                     <tr>
-                        <td>{{ $item->id }}</td>
+                        <td class="text-center">{{ $item->id }}</td>
                         <td>
                             <?php if(!empty($item->user_id)): ?>
-                                <a href="#">{{ $item->user_id }}</a>
+                                <a href="{{ route('adm_customer_show', [app()->getLocale(), 'id' => $item->user_id]) }}">{{ $item->customer->name }}</a>
                             <?php else: ?>
-                                -----
+                                -
                             <?php endif; ?>
                         </td>
+                        <td class="text-center">{{ $item->order_status->name }}</td>
+                        <td>{{ !empty($item->note) ? $item->note : '-' }}</td>
+                        <td class="text-center">{{ $item->total_price }}</td>
                         <td>{{ $item->count_products }}</td>
-                        <td>{{ $item->d_order_status_id }}</td>
-                        <td>{{ $item->total_price }}</td>
-                        <td>{{ $item->note }}</td>
-                        <td>
-                            <a href="{{ route('adm_order', [app()->getLocale(), 'id' => $item->id]) }}">View</a>
+                        <td class="text-center">
+                            <a href="{{ route('adm_order_show', [app()->getLocale(), 'id' => $item->id]) }}"><i class="fa fa-eye"></i> Preview</a>
+                            <a href="{{ route('adm_order_edit', [app()->getLocale(), 'id' => $item->id]) }}"><i class="fa fa-edit"></i> Edit note</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

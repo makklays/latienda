@@ -17,7 +17,17 @@
     </div>
 
     <div class="">
-        {{ $user->name }} - {{ $user->email }}
+        {{ $user->name }} - {{ $user->email }} <br/><br/>
+    </div>
+
+    <div class="">
+        Products - {{ $products_count }} <br/>
+        Categories - {{ $categories_count }} <br/><br/>
+
+        Orders [status: new] - {{ $orders_count_new }} <br/>
+        Orders [status: 2] - {{ $orders_count_ }} <br/><br/>
+
+        Customers - {{ $customers_count }}
     </div>
 
 @endsection

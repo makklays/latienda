@@ -5,21 +5,13 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Category / Edit / {{ $category->title }}</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group mr-2">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-            </div>
-            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle mr-2">
-                <span class="fa fa-calendar"></span>
-                This week
-            </button>
-            <a href="{{ route('adm_category_add', app()->getLocale()) }}" class="btn btn-sm btn-outline-secondary">Add</a>
+            <a href="{{ route('adm_category_add', app()->getLocale()) }}" class="btn btn-outline-success"><i class="fa fa-plus"></i> Add category</a>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-            <form action="{{ route('adm_category_edit_process', [app()->getLocale(), 'id'=>$category->id]) }}" method="POST">
+            <form action="{{ route('adm_category_edit_process', [app()->getLocale(), 'id'=>$category->id]) }}" method="POST" enctype="multipart/form-data" >
                 @csrf
 
                 <div class="form-group">
@@ -68,20 +60,20 @@
                     <?php endif; ?>
 
                     <div class="" style="margin: 10px 0 0 0; padding: 10px 0 0 0;">
-                        <?php if(!empty($category->img) && file_exists(public_path('/storage/categories/'.$category->id.'/'.$category->img))): ?>
-                            <img src="{{ asset('storage/categories/'.$category->id.'/'.$category->img) }}" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $category->title }}" alt="..." />
+                        <?php if(!empty($category->img) && file_exists(public_path('/../storage/app/categories/'.$category->id.'/'.$category->img))): ?>
+                            <img src="{{ asset('categories/'.$category->id.'/'.$category->img) }}" style="width:200px;" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $category->title }}" alt="..." />
                         <?php else: ?>
-                            <img src="{{ asset('storage/111.png') }}" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $category->title }}" alt="no-foto" />
+                            <img src="{{ asset('images/no-logo.png') }}" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $category->title }}" alt="no-foto" />
                         <?php endif; ?>
                     </div>
                 </div>
                 <div class="form-group form-check">
-                    <input type="checkbox" name="is_active" class="form-check-input" id="idActive" checked="checked" />
-                    <label class="form-check-label" for="idActive" {{ $category->is_active }} >is active</label>
+                    <input type="checkbox" name="is_active" class="form-check-input" id="idActive" <?= $category->is_active ? 'checked="checked"' : '' ?> />
+                    <label class="form-check-label" for="idActive">is active</label>
                 </div>
 
                 <a href="{{ route('adm_category', app()->getLocale()) }}" class="btn btn-success" style="margin-right: 20px;" >Cancel</a>
-                <button type="submit" class="btn btn-primary">Edit category</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i> Save category</button>
 
                 <br/><br/><br/>
             </form>
