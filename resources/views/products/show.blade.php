@@ -34,28 +34,31 @@
                     <div class="row" style="padding: 30px 0 50px 0;">
 
                         <div class="col-md-6">
-
+                            <?php $arr_imgs = explode('|', $product->img); ?>
                             <div>
                                 <?php if(!empty($product->img)): ?>
-                                    <?php $imgs = json_decode($product->img); ?>
-                                    <?php foreach($imgs as $k => $img_name): ?>
+                                    <?php foreach($arr_imgs as $k => $img_name): ?>
                                         <?php if($k == 1): ?>
-                                            <a href="{{ route('product', ['slug' => $product->slug, 'locale' => app()->getLocale()]) }}" >
-                                                <img src="{{ asset('products/'.$product->id.'/'.$img_name) }}" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $product->title }}" alt="..." />
+                                            <a id="id-a-center" href="{{ asset('products/'.$product->id.'/'.$img_name) }}" data-fancybox data-caption="{{ env('APP_NAME') }} | {{ $product->title }}" >
+                                                <img id="id-img-center" src="{{ asset('products/'.$product->id.'/'.$img_name) }}" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $product->title }}" alt="..." />
                                             </a>
                                         <?php endif; ?>
                                     <?php endforeach; ?>
                                 <?php else: ?>
-                                    <img src="{{ asset('images/no-logo.png') }}" style="width:200px;" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $product->title }}" alt="no-foto" />
+                                    <a href="{{ route('product', ['slug' => $product->slug, 'locale' => app()->getLocale()]) }}" >
+                                        <img src="{{ asset('images/no-logo.png') }}" style="width:200px;" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $product->title }}" alt="no-foto" />
+                                    </a>
                                 <?php endif; ?>
                             </div>
 
                             <div>
-                                <?php foreach($imgs as $k => $img_name): ?>
-                                <a href="{{ route('product', ['slug' => $product->slug, 'locale' => app()->getLocale()]) }}" >
-                                    <img src="{{ asset('products/'.$product->id.'/'.$img_name) }}" style="width:100px;" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $product->title }}" alt="..." />
-                                </a>
-                                <?php endforeach; ?>
+                                <p class="imglist" style="max-width: 1000px;">
+                                    <?php foreach($arr_imgs as $k => $img_name): ?>
+                                        <a href="{{ asset('products/'.$product->id.'/'.$img_name) }}" data-fancybox="images" data-caption="{{ env('APP_NAME') }} | {{ $product->title }}" >
+                                            <img class="img-thumb-hover" src="{{ asset('products/'.$product->id.'/'.$img_name) }}" style="width:100px;" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $product->title }}" alt="..." />
+                                        </a>
+                                    <?php endforeach; ?>
+                                </p>
                             </div>
                         </div>
 
@@ -96,9 +99,41 @@
         </div>
 
         <div class="col-md-12">
-            <h2 class="text-center" style="font-size:50px;">Productos relacionados</h2>
+            <h2 class="text-center" style="font-size:50px; padding:50px 0;">Productos relacionados</h2>
             <div>
-                ///
+                <div class="row row-cols-1 row-cols-md-3">
+                    <?php foreach($products_relacionados as $k => $itm): ?>
+                        <div class="col mb-4">
+                            <div class="card h-100">
+                                <?php $arr_imgs = explode('|', $itm->img); ?>
+
+                                <?php if(isset($arr_imgs[0]) && !empty($arr_imgs[0])): ?>
+                                    <a href="{{ route('product', [app()->getLocale(), 'slug' => $itm->slug]) }}" >
+                                        <img src="{{ asset('products/'.$itm->id.'/'.$arr_imgs[0]) }}" class="card-img-top" alt="{{ env('APP_NAME') }} | {{ $itm->title }}" />
+                                    </a>
+                                <?php else: ?>
+                                    <img src="" class="" title="" alt="" />
+                                <?php endif; ?>
+
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <a href="{{ route('product', [app()->getLocale(), 'slug' => $itm->slug]) }}" class="a-green">{{ $itm->title }}</a>
+                                    </h5>
+                                    <p class="card-text">
+                                        <div>
+                                            <small style="color:grey; font-size:14px;">CODE: {{ $itm->sku }}</small>
+                                        </div>
+                                        <div>{{ $itm->description }}</div>
+                                        <div>
+                                            <br/>
+                                            <span>{{ $itm->price }} €</span>
+                                        </div>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
 
             <br/><br/>
@@ -130,6 +165,29 @@
                 $('#id-center-price').html( new_val );
                 $('#id-quantity').val( new_val );
             }
+            return false;
+        });
+
+        //
+        $('[data-fancybox="images"]').fancybox({
+            buttons : [
+                'slideShow',
+                'share',
+                'zoom',
+                'fullScreen',
+                'close'
+            ],
+            thumbs : {
+                autoStart : true
+            }
+        });
+
+        $('.img-thumb-hover').on('mouseenter', function(){
+            //
+            var url_img = $(this).attr('src');
+            console.log(url_img);
+            $('#id-img-center').attr('src', url_img);
+            $('#id-a-center').attr('href', url_img);
             return false;
         });
     </script>

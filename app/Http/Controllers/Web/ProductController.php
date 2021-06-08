@@ -49,11 +49,18 @@ class ProductController extends Controller
             }
         }
 
+        //
+        $products_relacionados = Product::query()
+            ->where(['is_active' => '1', 'category_id' => $cat->id])
+            ->orWhere(['is_active' => '1', 'category_id' => $cat->parent_id])
+            ->limit(4)->get();
+
         return view('products.show', [
             'product' => $product,
             'seo' => $seo,
             'cat' => $cat,
             'cat_parent' => $cat_parent,
+            'products_relacionados' => $products_relacionados,
         ]);
     }
 }

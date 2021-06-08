@@ -63,14 +63,20 @@ class CartController extends Controller
                     ->where(['order_id' => $order->id])
                     ->sum(\DB::raw('price * quantity'));
 
+                //dd($price_total);
+
                 $count_products = OrderItem::query()
                     ->where(['order_id' => $order->id])
                     ->count('price');
 
+                //dd($count_products);
+
                 // update - total_price
-                $order->total_price = ( $price_total + ( $product->price * $product->quantity ) );
-                $order->count_products = ( $count_products + 1 );
+                $order->total_price = ( $price_total + ( $product->price * $quantity ) );
+                $order->count_products = ( $count_products + 1 ); // count order_items
                 $order->save();
+
+                //dd($order);
 
             } else {
 
@@ -78,7 +84,7 @@ class CartController extends Controller
                 $order = Order::create([
                     'user_id' => !empty($user_id) ? $user_id : null,
                     'd_order_status_id' => 1,
-                    'total_price' => ( $product->price * $product->quantity ),
+                    'total_price' => ( $product->price * $quantity ),
                     'count_products' => 1,
                     'd_delivery_id' => 1,
                     'd_payment_id' => 1
@@ -118,12 +124,48 @@ class CartController extends Controller
     public function deleteFromCart(Request $request)
     {
         //
-        $order_product_id = $request->get('order_product_id');
+        $order_item_id = $request->get('order_item_id');
 
-        //
-        $orderItem = OrderItem::query()->where(['id' => $order_product_id])->delete();
+        // Begin transaction
+        DB::beginTransaction();
 
-        return redirect(route('cart', [app()->getLocale()]))
+        try {
+            // get - order_id
+            $orderItem = OrderItem::query()->where(['id' => $order_item_id])->first();
+            OrderItem::query()->where(['id' => $order_item_id])->delete();
+
+            // get Order
+            $order = Order::query()->where(['id' => $orderItem->order_id])->first();
+
+            // get sum price_total
+            $price_total = OrderItem::query()
+                ->where(['order_id' => $order->id])
+                ->sum(\DB::raw('price * quantity'));
+
+            $count_products = OrderItem::query()
+                ->where(['order_id' => $order->id])
+                ->count('price');
+
+            // update - total_price
+            $order->total_price = $price_total;
+            $order->count_products = $count_products;
+            $order->save();
+
+        } catch(\Exception $e) {
+            DB::rollBack();
+
+            // Back to form with errors
+            return Redirect::to( route('cart', ['locale' => app()->getLocale()]) )
+                ->with([
+                    'flash_type' => 'danger',
+                    'flash_message' => $e->getMessage().' Line:'. $e->getLine()
+                ]);
+        }
+
+        // End transaction
+        DB::commit();
+
+        return redirect(route('cart', ['locale' => app()->getLocale()]))
             ->with([
                 'flash_type' => 'success',
                 'flash_message' => 'Successfull! You delete from cart your product',

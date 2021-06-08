@@ -37,7 +37,7 @@
                     <div style="padding:20px 0;">
                         <div class="">
                             <?php if(!empty($item->img)): ?>
-                                <?php $imgs = json_decode($item->img); ?>
+                                <?php $imgs = explode('|', $item->img); ?>
                                 <?php foreach($imgs as $k => $img_name): ?>
                                     <?php if($k == 1): ?>
                                         <a href="{{ route('product', ['slug' => $item->slug, 'locale' => app()->getLocale()]) }}" >
@@ -46,7 +46,9 @@
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             <?php else: ?>
-                                <img src="{{ asset('images/no-logo.png') }}" style="width:200px;" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $item->title }}" alt="no-foto" />
+                                <a href="{{ route('product', ['slug' => $item->slug, 'locale' => app()->getLocale()]) }}" >
+                                    <img src="{{ asset('images/no-logo.png') }}" style="width:200px;" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $item->title }}" alt="no-foto" />
+                                </a>
                             <?php endif; ?>
                         </div>
 
@@ -57,7 +59,7 @@
                         </div>
 
                         <div>
-                            <small style="color:grey; font-size:14px;">{{ $item->sku }}</small>
+                            <small style="color:grey; font-size:14px;">CODE: {{ $item->sku }}</small>
                         </div>
 
                         <div>{{ $item->description }}</div>

@@ -111,7 +111,7 @@
                     <?php endif; ?>
 
                     <?php if(!empty($product->img)): ?>
-                        <?php $imgs = json_decode($product->img); ?>
+                        <?php $imgs = explode('|', $product->img); ?>
                         <?php foreach($imgs as $k => $img_name): ?>
                             <img src="{{ asset('products/'.$product->id.'/'.$img_name) }}" style="width:200px;" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $product->title }}" alt="..." />
                         <?php endforeach; ?>

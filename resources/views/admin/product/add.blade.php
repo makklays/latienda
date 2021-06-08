@@ -96,7 +96,7 @@
 
                 <div class="form-group">
                     <label for="idImg">Image</label>
-                    <input type="file" multiple name="img" value="{{ old('img') }}" class="form-control" id="idImg" />
+                    <input type="file" multiple name="img[]" value="{{ old('img') }}" class="form-control" id="idImg" />
 
                     <?php if ($errors->has('img')): ?>
                     <div class="invalid-img" role="alert" style="font-size:12px; color:#d64028;"><?=$errors->first('img')?></div>

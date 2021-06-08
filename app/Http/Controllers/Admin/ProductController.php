@@ -54,14 +54,17 @@ class ProductController extends Controller
         ]);
 
         if (!empty($request->img)) {
-            $imgs = new Collection();
+            $arr_imgs = [];
+            $i = 1;
             foreach($request->file('img') as $k => $img) {
                 $extension = $img->extension();
-                $new_name = 'category.' . $extension;
+                $new_name = 'product'.$i.'.' . $extension;
                 $path = $img->storeAs('products/' . $product->id, $new_name);
-                $imgs->put($k, $new_name);
+
+                $arr_imgs[] .= $new_name;
+                $i++;
             }
-            $product->img = $imgs->toJson();
+            $product->img = implode('|', $arr_imgs);
             $product->save();
         }
 
@@ -104,24 +107,18 @@ class ProductController extends Controller
         $product->save();
 
         // guarda img
-
         if (!empty($request->img)) {
-            $imgs = new Collection();
+            $arr_imgs = [];
             $i = 1;
             foreach($request->file('img') as $k => $img) {
                 $extension = $img->extension();
                 $new_name = 'product'.$i.'.' . $extension;
                 $path = $img->storeAs('products/' . $product->id, $new_name);
 
-                //dd($new_name);
-
-                $imgs->put($i, $new_name);
+                $arr_imgs[] .= $new_name;
                 $i++;
             }
-
-            //dd($imgs->toJson());
-
-            $product->img = $imgs->toJson();
+            $product->img = implode('|', $arr_imgs);
             $product->save();
         }
 
