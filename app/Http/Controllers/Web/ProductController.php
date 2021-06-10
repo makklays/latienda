@@ -53,7 +53,7 @@ class ProductController extends Controller
         $products_relacionados = Product::query()
             ->where(['is_active' => '1', 'category_id' => $cat->id])
             ->orWhere(['is_active' => '1', 'category_id' => $cat->parent_id])
-            ->limit(4)->get();
+            ->limit(3)->get();
 
         return view('products.show', [
             'product' => $product,

@@ -103,33 +103,44 @@
             <div>
                 <div class="row row-cols-1 row-cols-md-3">
                     <?php foreach($products_relacionados as $k => $itm): ?>
-                        <div class="col mb-4">
-                            <div class="card h-100">
-                                <?php $arr_imgs = explode('|', $itm->img); ?>
-
-                                <?php if(isset($arr_imgs[0]) && !empty($arr_imgs[0])): ?>
-                                    <a href="{{ route('product', [app()->getLocale(), 'slug' => $itm->slug]) }}" >
-                                        <img src="{{ asset('products/'.$itm->id.'/'.$arr_imgs[0]) }}" class="card-img-top" alt="{{ env('APP_NAME') }} | {{ $itm->title }}" />
+                        <div class="col-md-4">
+                            <div class="my-border-img-over">
+                                <div class="">
+                                    <?php if(!empty($itm->img)): ?>
+                                    <?php $imgs = explode('|', $itm->img); ?>
+                                    <?php foreach($imgs as $k => $img_name): ?>
+                                    <?php if($k == 1): ?>
+                                    <a href="{{ route('product', ['slug' => $itm->slug, 'locale' => app()->getLocale()]) }}" >
+                                        <img src="{{ asset('products/'.$itm->id.'/'.$img_name) }}" class="img img-fluid" title="{{ env('APP_NAME') }} | {{ $itm->title }}" alt="..." />
                                     </a>
-                                <?php else: ?>
-                                    <img src="" class="" title="" alt="" />
-                                <?php endif; ?>
-
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <a href="{{ route('product', [app()->getLocale(), 'slug' => $itm->slug]) }}" class="a-green">{{ $itm->title }}</a>
-                                    </h5>
-                                    <p class="card-text">
-                                        <div>
-                                            <small style="color:grey; font-size:14px;">CODE: {{ $itm->sku }}</small>
-                                        </div>
-                                        <div>{{ $itm->description }}</div>
-                                        <div>
-                                            <br/>
-                                            <span>{{ $itm->price }} €</span>
-                                        </div>
-                                    </p>
+                                    <?php endif; ?>
+                                    <?php endforeach; ?>
+                                    <?php else: ?>
+                                    <a href="{{ route('product', ['slug' => $itm->slug, 'locale' => app()->getLocale()]) }}" >
+                                        <img src="{{ asset('images/no-logo.png') }}" style="width:200px;" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $itm->title }}" alt="no-foto" />
+                                    </a>
+                                    <?php endif; ?>
                                 </div>
+
+                                <div class="text-center">
+                                    <a href="{{ route('product', ['slug' => $itm->slug, 'locale' => app()->getLocale()]) }}" class="a-green" >
+                                        {{ $itm->title }}
+                                    </a>
+                                </div>
+
+                                <div class="text-center">
+                                    <small style="color:grey; font-size:14px;">CODE: {{ $itm->sku }}</small>
+                                </div>
+
+                                <!--div>{{ $itm->description }}</div-->
+
+                                <div style="padding-top:20px;" class="text-center">
+                                    {{ $itm->price }} EUR <strike style="font-size:16px; color:grey;">{{ $itm->old_price }} EUR</strike>
+                                </div>
+
+                                <!--div style="padding-top: 20px;">
+                                    <a href="{{ route('product', ['locale' => app()->getLocale(), 'slug' => $itm->slug]) }}" class="btn btn-success" title="{{ $itm->title }}" >Detalles >></a>
+                                </div-->
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -141,12 +152,23 @@
     </div>
 
     <script>
+        // увеличение фото при наведении
+        $('.my-img-card-over').on('mouseover', function(){
+            $(this).find('.my-img-over').addClass('big-foto');
+            return false;
+        });
+        $('.my-img-card-over').on('mouseout', function(){
+            $(this).find('.my-img-over').removeClass('big-foto');
+            return false;
+        });
+
+        // tabs
         $('#myTab a').on('click', function (event) {
             event.preventDefault();
             $(this).tab('show');
         });
 
-        // plus
+        // click plus
         $('#id-right-price').on('click', function(event) {
             event.preventDefault();
             var val = $('#id-center-price').html();
@@ -156,7 +178,7 @@
             return false;
         });
 
-        // minus
+        // click minus
         $('#id-left-price').on('click', function(event) {
             event.preventDefault();
             var val = $('#id-center-price').html();
@@ -168,7 +190,7 @@
             return false;
         });
 
-        //
+        // Fancybox
         $('[data-fancybox="images"]').fancybox({
             buttons : [
                 'slideShow',
@@ -182,12 +204,22 @@
             }
         });
 
+        // big foto in center by mouseover in product
         $('.img-thumb-hover').on('mouseenter', function(){
-            //
             var url_img = $(this).attr('src');
-            console.log(url_img);
+            //console.log(url_img);
             $('#id-img-center').attr('src', url_img);
             $('#id-a-center').attr('href', url_img);
+            return false;
+        });
+
+        //
+        $('.my-border-img-over').on('mouseover', function(){
+            $(this).addClass('active');
+            return false;
+        });
+        $('.my-border-img-over').on('mouseout', function(){
+            $(this).removeClass('active');
             return false;
         });
     </script>

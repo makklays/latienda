@@ -37,6 +37,18 @@ div.center-price {
     float: left;
 }
 
+.big-foto {
+    transform: scale(1.5);
+}
+
+.my-border-img-over {
+    padding: 10px;
+    border: 2px solid #FFF;
+}
+.my-border-img-over.active {
+    padding: 10px;
+    border: 2px solid #FF9D00;
+}
 
 .wtc {
     color: #FFF;

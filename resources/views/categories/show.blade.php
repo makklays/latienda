@@ -34,14 +34,14 @@
         <div class="row">
             <?php foreach($products as $k => $item): ?>
                 <div class="col-md-4">
-                    <div style="padding:20px 0;">
+                    <div class="my-border-img-over">
                         <div class="">
                             <?php if(!empty($item->img)): ?>
                                 <?php $imgs = explode('|', $item->img); ?>
                                 <?php foreach($imgs as $k => $img_name): ?>
                                     <?php if($k == 1): ?>
                                         <a href="{{ route('product', ['slug' => $item->slug, 'locale' => app()->getLocale()]) }}" >
-                                            <img src="{{ asset('products/'.$item->id.'/'.$img_name) }}" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $item->title }}" alt="..." />
+                                            <img src="{{ asset('products/'.$item->id.'/'.$img_name) }}" class="img img-fluid" title="{{ env('APP_NAME') }} | {{ $item->title }}" alt="..." />
                                         </a>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
@@ -52,25 +52,25 @@
                             <?php endif; ?>
                         </div>
 
-                        <div>
+                        <div class="text-center">
                             <a href="{{ route('product', ['slug' => $item->slug, 'locale' => app()->getLocale()]) }}" class="a-green" >
                                 {{ $item->title }}
                             </a>
                         </div>
 
-                        <div>
+                        <div class="text-center">
                             <small style="color:grey; font-size:14px;">CODE: {{ $item->sku }}</small>
                         </div>
 
-                        <div>{{ $item->description }}</div>
+                        <!--div>{{ $item->description }}</div-->
 
-                        <div style="padding-top: 20px;">
+                        <div style="padding-top:20px;" class="text-center">
                             {{ $item->price }} EUR <strike style="font-size:16px; color:grey;">{{ $item->old_price }} EUR</strike>
                         </div>
 
-                        <div style="padding-top: 20px;">
+                        <!--div style="padding-top: 20px;">
                             <a href="{{ route('product', ['locale' => app()->getLocale(), 'slug' => $item->slug]) }}" class="btn btn-success" title="{{ $item->title }}" >Detalles >></a>
-                        </div>
+                        </div-->
                     </div>
                 </div>
             <?php endforeach; ?>
