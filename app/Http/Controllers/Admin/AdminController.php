@@ -15,6 +15,11 @@ class AdminController extends Controller
 {
     public function home()
     {
+        // check
+        if (empty(Auth::user()->name)) {
+            return redirect( route('register', app()->getLocale()) );
+        }
+
         $seo = Seo::metaTags('home_admin');
         $user = Auth::user();
 

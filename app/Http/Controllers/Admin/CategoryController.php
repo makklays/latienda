@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    //
     public function index()
     {
         $seo = Seo::metaTags('adm_category');
@@ -112,8 +113,6 @@ class CategoryController extends Controller
         $seo = Seo::metaTags('adm_category_add');
 
         $category = Category::query()->where(['id' => $id])->first();
-
-        //dd($category->children_category, $category->title);
 
         return view('admin.category.show', [
             'seo' => $seo,

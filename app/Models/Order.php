@@ -13,6 +13,7 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [
+        'hash_order',
         'user_id',
         'd_order_status_id',
         'total_price',

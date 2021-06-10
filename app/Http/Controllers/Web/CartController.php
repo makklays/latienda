@@ -10,26 +10,21 @@ use App\Models\OrderItem;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
-    public function __construct()
-    {
-        //
-    }
-
+    //
     public function index()
     {
         $seo = Seo::metaTags('cart');
 
         $order = Order::query()->where(['d_order_status_id' => 1])->orderByDesc('id')->first();
         $order_items = OrderItem::query()->where(['order_id' => $order->id])->get();
-
-        //dd($order);
-        //$user = Auth::user();
 
         return view('cart.index', [
             'seo' => $seo,
@@ -38,16 +33,21 @@ class CartController extends Controller
         ]);
     }
 
+    //
     public function addToCart(AddToCartRequest $request)
     {
-        //dd($request->all());
+        // get cookie - number order - hash
+        if (empty($request->cookie('number_order'))) {
+            $minutes = 60 * 24 * 30; // 1 month
+            $hash_value = Hash::make('MyOrder');
+            Cookie::queue('number_order', $hash_value, $minutes);
+        } else {
+            $hash_value = $request->cookie('number_order');
+        }
 
         $quantity = $request->get('quantity');
         $sku = $request->get('sku');
         $product = Product::query()->where(['sku' => $sku])->first();
-
-        //dd($product->price);
-        //$user_id = Auth::user()->id;
 
         // Begin transaction
         DB::beginTransaction();
@@ -55,7 +55,10 @@ class CartController extends Controller
         try {
 
             // get Order
-            $order = Order::query()->where(['d_order_status_id' => 1])->orderByDesc('id')->first();
+            $order = Order::query()
+                ->where(['hash_order' => $hash_value])
+                ->orderByDesc('id')
+                ->first();
 
             if (!empty($order)) {
                 // get sum price_total
@@ -63,25 +66,24 @@ class CartController extends Controller
                     ->where(['order_id' => $order->id])
                     ->sum(\DB::raw('price * quantity'));
 
-                //dd($price_total);
-
                 $count_products = OrderItem::query()
                     ->where(['order_id' => $order->id])
                     ->count('price');
-
-                //dd($count_products);
 
                 // update - total_price
                 $order->total_price = ( $price_total + ( $product->price * $quantity ) );
                 $order->count_products = ( $count_products + 1 ); // count order_items
                 $order->save();
 
-                //dd($order);
+                // cookie - count order items in cart - 1 month
+                $count = $count_products + 1;
+                Cookie::queue('count_order_items', $count, 60 * 24 * 30 );
 
             } else {
 
                 // create order - get OrderId
                 $order = Order::create([
+                    'hash_order' => $hash_value,
                     'user_id' => !empty($user_id) ? $user_id : null,
                     'd_order_status_id' => 1,
                     'total_price' => ( $product->price * $quantity ),
@@ -89,6 +91,9 @@ class CartController extends Controller
                     'd_delivery_id' => 1,
                     'd_payment_id' => 1
                 ]);
+
+                // cookie - count order items in cart - 1 month
+                Cookie::queue('count_order_items', '1', 60 * 24 * 30 );
             }
 
             // create order_item with OrderId
@@ -121,6 +126,7 @@ class CartController extends Controller
         ]);
     }
 
+    //
     public function deleteFromCart(Request $request)
     {
         //
@@ -150,6 +156,9 @@ class CartController extends Controller
             $order->total_price = $price_total;
             $order->count_products = $count_products;
             $order->save();
+
+            // cookie - count order items in cart - 1 month
+            Cookie::queue('count_order_items', $count_products, 60 * 24 * 30 );
 
         } catch(\Exception $e) {
             DB::rollBack();

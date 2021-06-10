@@ -17,7 +17,9 @@
     </div>
 
     <div class="">
-        {{ $user->name }} - {{ $user->email }} <br/><br/>
+        <?php if (!empty($user->name)): ?>
+            {{ $user->name }} - {{ $user->email }} <br/><br/>
+        <?php endif; ?>
     </div>
 
     <div class="">

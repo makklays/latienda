@@ -12,6 +12,7 @@ use Illuminate\Support\Collection;
 
 class ProductController extends Controller
 {
+    //
     public function index()
     {
         $seo = Seo::metaTags('qweqwe');
@@ -37,6 +38,7 @@ class ProductController extends Controller
         ]);
     }
 
+    //
     public function add_process(AddProductRequest $request)
     {
         $product = Product::create([
@@ -88,6 +90,7 @@ class ProductController extends Controller
         ]);
     }
 
+    //
     public function edit_process(AddProductRequest $request, $locale, $id)
     {
         // edit product

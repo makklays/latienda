@@ -78,7 +78,7 @@
                             <form action="{{ route('add_to_cart', app()->getLocale()) }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="sku" value="{{ $product->sku }}" />
-                                <input id="id-quantity" type="hidden" name="quantity" value="" />
+                                <input id="id-quantity" type="hidden" name="quantity" value="1" />
                                 <input type="submit" class="btn btn-success" value="Add to cart" />
                             </form>
                             <br/>
