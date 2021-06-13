@@ -17,4 +17,10 @@ class OrderItem extends Model
         'quantity',
         'price',
     ];
+
+    // one - order_status
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id', 'id');
+    }
 }

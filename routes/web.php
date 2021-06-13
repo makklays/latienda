@@ -78,11 +78,10 @@ Route::group([
     Route::get('/delete-from-cart', ['as' => 'delete-from-cart', 'uses' => 'App\Http\Controllers\Web\CartController@deleteFromCart']);
 
     // Payments
-    Route::get('/purchase', ['as' => 'purchase', 'uses' => 'App\Http\Controllers\Web\PaymentController@purchase']);
-    Route::post('/purchase_process', ['as' => 'purchase_process', 'uses' => 'App\Http\Controllers\Web\PaymentController@purchaseProcess']);
-    Route::get('/p-success', ['as' => 'success', 'uses' => 'App\Http\Controllers\Web\PaymentController@success']);
-    Route::get('/p-cancel', ['as' => 'cancel', 'uses' => 'App\Http\Controllers\Web\PaymentController@cancel']);
-    Route::get('/p-checkout', ['as' => 'checkout', 'uses' => 'App\Http\Controllers\Web\PaymentController@checkout']);
+    Route::get('/checkout', ['as' => 'checkout', 'uses' => 'App\Http\Controllers\Web\PaymentController@checkout']);
+    Route::post('/checkout_process', ['as' => 'checkout_process', 'uses' => 'App\Http\Controllers\Web\PaymentController@checkoutProcess']);
+    Route::get('/success', ['as' => 'success', 'uses' => 'App\Http\Controllers\Web\PaymentController@success']);
+    Route::get('/cancel', ['as' => 'cancel', 'uses' => 'App\Http\Controllers\Web\PaymentController@cancel']);
 
     // Adminka
     Route::get('/admin', ['as' => 'da_admin', 'uses' => 'App\Http\Controllers\Admin\AdminController@home']);

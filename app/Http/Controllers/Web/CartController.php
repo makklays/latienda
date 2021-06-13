@@ -19,12 +19,24 @@ use Illuminate\Support\Facades\Session;
 class CartController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
         $seo = Seo::metaTags('cart');
 
-        $order = Order::query()->where(['d_order_status_id' => 1])->orderByDesc('id')->first();
-        $order_items = OrderItem::query()->where(['order_id' => $order->id])->get();
+        // order - cookie
+        $hash_value = $request->cookie('number_order');
+
+        //dd($hash_value);
+
+        $order = Order::query()->where(['hash_order' => $hash_value])->whereIn('d_payment_id', [1, 3])->first();
+        if (!empty($order)) {
+            $order_items = OrderItem::query()->where(['order_id' => $order->id])->get();
+        } else {
+            $order_items = [];
+
+            // cero para cesta
+            Cookie::queue('count_order_items', 0, 60 * 24 * 30 );
+        }
 
         return view('cart.index', [
             'seo' => $seo,
