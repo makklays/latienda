@@ -175,6 +175,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Passport\PassportServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -185,7 +186,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        App\Providers\SeoServiceProvider::class
+        App\Providers\SeoServiceProvider::class,
+        App\Providers\WordServiceProvider::class,
     ],
 
     /*
@@ -240,6 +242,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Seo' => App\Facades\Seo::class,
+        'Word' => App\Facades\Word::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];
