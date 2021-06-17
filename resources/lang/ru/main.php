@@ -1,6 +1,33 @@
 <?php
 
 return [
+    'Delete' => 'Удалить',
+    'History' => 'История',
+    'Flore' => 'Цветок',
+    'dashboard_cart' => 'Моя корзина',
+    'Confirm_datas' => 'Подтвердить данные',
+    'Purchase_order' => 'Оплатить заказ',
+    'Checkout-order' => 'Оформить заказ',
+    'Choose_type_of_delivery' => 'Выберите тип доставки',
+    'Type_delivery' => 'Тип доставки',
+    'Your_order' => 'Вы заказали',
+    'Save_datas' => 'Сохранить данные',
+    'Purchase' => 'Оплатить',
+    'Period_entrega' => 'Утром, вечером',
+    'Send_to_different_address' => 'Хочу получить / Отправить на указанный адрес?',
+    'Placeholder_2' => 'Добавьте текст на открытку в ваш заказ',
+    'Dedicatoria' => 'Надпись в открытке',
+    'Fecha_entrega' => 'Дата доставки',
+    'Horrario_entrega_preferente' => 'Предпочтительное время',
+    'Choose_area' => 'Выбрать провинцию',
+    'Zip' => 'Индекс почтовый',
+    'Provincia' => 'Провинция',
+    'Village_City' => 'Деревня / Город',
+    'Address' => 'Адрес',
+    'Phone' => 'Телефон',
+    'Surname' => 'Фамилия',
+    'Details_order' => 'Детали заказа',
+    'Checkout' => 'Оформление заказа',
     'about' => 'Про нас',
     'home' => 'Главная',
     'categories' => 'Категории',
@@ -23,7 +50,7 @@ return [
     'Forgot Your Password?' => 'Забыли свой пароль?',
     'Verify' => 'Подтверждение E-mail-а',
     'verify_email' => 'Подтверждение e-mail',
-    'Empty' => 'Нечего показывать',
+    'Empty' => 'Отсутствует наполнение',
 
     // para el correo - verify email
     'Btn_Confirm_verify_email' => 'Подтвердите адрес электронной почты',
@@ -44,46 +71,19 @@ return [
     'dashboard' => 'Мой аккаунт',
     'dashboard_history' => 'История покупок',
     'dashboard_orders' => 'Статусы заказов',
-
-    'home_title' => 'Latienda Title',
-    'home_description' => 'Latienda Description',
-    'home_keywords' => 'Latienda Keywords',
-
-    'about_title' => 'Latienda Title',
-    'about_description' => 'Latienda Description',
-    'about_keywords' => 'Latienda Keywords',
-
-    'delivery_title' => 'Latienda Title',
-    'delivery_description' => 'Latienda Description',
-    'delivery_keywords' => 'Latienda Keywords',
-
-    'contacts_title' => 'Latienda Title',
-    'contacts_description' => 'Latienda Description',
-    'contacts_keywords' => 'Latienda Keywords',
-
-    'products_title' => 'Latienda Title',
-    'products_description' => 'Latienda Description',
-    'products_keywords' => 'Latienda Keywords',
-    'one_product_title' => 'Latienda Title',
-    'one_product_description' => 'Latienda Description',
-    'one_product_keywords' => 'Latienda Keywords',
-
-    'categories_title' => 'Latienda Title',
-    'categories_description' => 'Latienda Description',
-    'categories_keywords' => 'Latienda Keywords',
-    'one_category_title' => 'Latienda Title',
-    'one_category_description' => 'Latienda Description',
-    'one_category_keywords' => 'Latienda Keywords',
-
-    'blogs_title' => 'Latienda Title',
-    'blogs_description' => 'Latienda Description',
-    'blogs_keywords' => 'Latienda Keywords',
-    'one_blog_title' => 'Latienda Title',
-    'one_blog_description' => 'Latienda Description',
-    'one_blog_keywords' => 'Latienda Keywords',
+    'dashboard_profile' => 'Мои профиль',
 
     //
+    'Add_to_cart' => 'В корзину',
     'cart' => 'Корзина',
     'Shopping cart' => 'Корзина',
+    'Similares' => 'Связанные продукты',
 
+    'About_description' => 'Текст описания для страницы "Про нас" .....',
+    'Delivery_description' => 'Текст описания для страницы "Доставка" .....',
+    'Contacts_description' => 'Текст описания для страницы "Контакты" .....',
+
+    'Confirm_datos_successfuly' => 'Данные заказа успешно подтверждены',
+    'Deleted_from_cart_successfuly' => 'Выбранный продукт успешно удален из корзины',
+    'Add_to_cart_successfuly' => 'В корзину успешно добавлен продукт',
 ];

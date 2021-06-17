@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'Checkout' => 'Checkout',
     'about' => 'Sobre',
     'home' => 'Primera',
     'delivery' => 'Entrega',

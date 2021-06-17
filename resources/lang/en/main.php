@@ -1,6 +1,33 @@
 <?php
 
 return [
+    'Delete' => 'Delete',
+    'History' => 'History',
+    'Flore' => 'Flower',
+    'dashboard_cart' => 'Shopping cart',
+    'Confirm_datas' => 'Confirm of datas',
+    'Purchase_order' => 'Purchase order',
+    'Checkout-order' => 'Checkout order',
+    'Choose_type_of_delivery' => 'Choose type of delivery',
+    'Type_delivery' => 'Type of delivery',
+    'Your_order' => 'Your order',
+    'Save_datas' => 'Save datas',
+    'Purchase' => 'Purchase',
+    'Period_entrega' => 'Por la mañana, por la tarde',
+    'Send_to_different_address' => 'Send to different addresses?',
+    'Placeholder_2' => 'Add a dedication to your order',
+    'Dedicatoria' => 'Dedication (optional)',
+    'Fecha_entrega' => 'Delivery date',
+    'Horrario_entrega_preferente' => 'Hours of delivery preferential',
+    'Choose_area' => 'Choose area',
+    'Zip' => 'Zip post',
+    'Provincia' => 'Area',
+    'Village_City' => 'Village / City',
+    'Address' => 'Address',
+    'Phone' => 'Phone',
+    'Surname' => 'Surname',
+    'Details_order' => 'Details of invoicing',
+    'Checkout' => 'Checkout',
     'about' => 'About',
     'home' => 'Home',
     'delivery' => 'Delivery',
@@ -22,7 +49,7 @@ return [
     'Forgot Your Password?' => 'Forgot Your Password?',
     'Logout' => 'Logout',
     'Verify' => 'Veryfy E-mail',
-    'verify_email' => 'Подтверждение e-mail',
+    'verify_email' => 'Verify e-mail',
     'Empty' => 'Anything for view',
 
     // para el correo - verify email
@@ -41,48 +68,23 @@ return [
     'Thanks for your order!' => 'Thanks for your order!',
     'Checkout canceled' => 'Checkout canceled',
 
-    'dashboard' => 'Мой аккаунт',
-    'dashboard_history' => 'История покупок',
-    'dashboard_orders' => 'Статусы заказов',
+    'dashboard' => 'My account',
+    'dashboard_history' => 'History of purchases',
+    'dashboard_orders' => 'Statuses of orders',
+    'dashboard_profile' => 'My profile',
 
-    'home_title' => 'Latienda Title',
-    'home_description' => 'Latienda Description',
-    'home_keywords' => 'Latienda Keywords',
-
-    'about_title' => 'Latienda Title',
-    'about_description' => 'Latienda Description',
-    'about_keywords' => 'Latienda Keywords',
-
-    'delivery_title' => 'Latienda Title',
-    'delivery_description' => 'Latienda Description',
-    'delivery_keywords' => 'Latienda Keywords',
-
-    'contacts_title' => 'Latienda Title',
-    'contacts_description' => 'Latienda Description',
-    'contacts_keywords' => 'Latienda Keywords',
-
-    'products_title' => 'Latienda Title',
-    'products_description' => 'Latienda Description',
-    'products_keywords' => 'Latienda Keywords',
-    'one_product_title' => 'Latienda Title',
-    'one_product_description' => 'Latienda Description',
-    'one_product_keywords' => 'Latienda Keywords',
-
-    'categories_title' => 'Latienda Title',
-    'categories_description' => 'Latienda Description',
-    'categories_keywords' => 'Latienda Keywords',
-    'one_category_title' => 'Latienda Title',
-    'one_category_description' => 'Latienda Description',
-    'one_category_keywords' => 'Latienda Keywords',
-
-    'blogs_title' => 'Latienda Title',
-    'blogs_description' => 'Latienda Description',
-    'blogs_keywords' => 'Latienda Keywords',
-    'one_blog_title' => 'Latienda Title',
-    'one_blog_description' => 'Latienda Description',
-    'one_blog_keywords' => 'Latienda Keywords',
     //
-
+    'Add_to_cart' => 'Add to cart',
     'cart' => 'Cart',
     'Shopping cart' => 'Shopping cart',
+    'Similares' => 'Related products',
+
+    'About_description' => 'Description text for page "About" .....',
+    'Delivery_description' => 'Description text for page "Delivery" .....',
+    'Contacts_description' => 'Description text for page "Contacts" .....',
+
+    'Confirm_datos_successfuly' => 'These orders have been confirmed successfully',
+    'Deleted_from_cart_successfuly' => 'Selected product successfully removed from cart',
+    'Add_to_cart_successfuly' => 'The product was successfully added to the shopping cart',
+
 ];
