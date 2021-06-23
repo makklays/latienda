@@ -4,6 +4,16 @@ body {
     font-size: 21px;
     font-family: Arial;
 }
+label {
+    font-size:18px;
+    color:grey;
+}
+.my-alert-error {
+    color:red;
+    font-size:14px;
+    margin:0;
+    padding:0;
+}
 
 /*** ***/
 div.left-price {
@@ -56,7 +66,7 @@ div.center-price {
 /*************************************/
 .navbar {
     /*overflow: hidden;*/
-    background-color: #333;
+    background-color: #3e2029;
     color: #FFF;
     /*font-family: Arial, Helvetica, sans-serif;*/
 }
@@ -74,7 +84,7 @@ div.center-price {
     background-color: #808080;
 }
 .dropdown-menu {
-    background-color: #333333;
+    background-color: #3e2029;
     color: #FFF;
     font-size: 19px;
     border: 0;
@@ -185,7 +195,7 @@ p {
 .text-design2 {
     /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";*/
     font-family: Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: calc(1.475rem + 2.7vw);
+    font-size: calc(0.6rem + 2.7vw);
     font-weight: 300;
     line-height: 1.2;
     margin-top: 30px;
@@ -309,17 +319,17 @@ blockquote p {
     font-size: calc(1.475rem + 2.7vw);
 }
 
-p::selection, h1::selection, h2::selection, h3::selection, h4::selection,
+/*p::selection, h1::selection, h2::selection, h3::selection, h4::selection,
 span::selection, a::selection, li::selection, div::selection, b::selection, img::selection {
-    background: #46bf00; /* Safari */
+    background: #46bf00;
     color: #FFF;
 }
 p::-moz-selection, h1::-moz-selection, h2::-moz-selection,
 h3::-moz-selection, h4::-moz-selection, span::-moz-selection,
 a::-moz-selection, li::-moz-selection, div::-moz-selection, b::-moz-selection, img::-moz-selection {
-    background: #46bf00; /* Firefox */
+    background: #46bf00;
     color: #FFF;
-}
+}*/
 
 /* menu - линия сверху */
 .navbar {
@@ -834,11 +844,11 @@ img.kromka {
 
 /* paging grey-style */
 .page-item.active .page-link {
-    background-color: #333;
-    border-color: #333;
+    background-color: #3e2029;
+    border-color: #3e2029;
 }
 .page-link, .page-link:hover {
-    color: #333;
+    color: #3e2029;
     padding: 8px 22px;
 }
 
@@ -865,4 +875,60 @@ img.kromka {
     display: block;
     overflow: hidden;
     float: left;
+}
+
+footer {
+    background-color: #3e2029;
+}
+footer a, footer a:visited, footer a:link {
+    font-size: 18px;
+    color: #b69721;
+}
+footer a:hover {
+    color: #d0a813;
+}
+
+/* a-flores */
+a.a-flore, a.a-flore:visited, a.a-flore:link {
+    font-size: 20px;
+    color: #b69721;
+}
+a.a-flore:hover {
+    color: #d0a813;
+}
+
+/* a-link */
+a.a-link, a.a-link:visited, a.a-link:link {
+    font-size: 20px;
+    color: #b69721;
+}
+a.a-link:hover {
+    color: #d0a813;
+}
+
+.span-flore {
+    color: grey;
+    padding: 0 10px;
+    /*font-size: 16px;*/
+}
+
+h1.color-h1, h2.color-h2, h1, h2, h3 {
+    color: #d0a813;
+}
+
+.breadcrumb a:visited, .breadcrumb a:link, .breadcrumb a:hover {
+    color: grey;
+}
+
+.btn-coche {
+    background-color: #b69721;
+    border-color: #b69721;
+    border-radius: unset;
+    font-size: 21px;
+    color: #FFF;
+}
+.btn-coche:hover {
+    background-color: #d0a813;
+    border-color: #b69721;
+    color: #FFF;
 }
