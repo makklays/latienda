@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             OrderStatusTableSeeder::class,
             PaymentTableSeeder::class,
             ProductsTableSeeder::class,
+            ProvinciasTableSeeder::class,
         ]);
     }
 }
