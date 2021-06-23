@@ -14,4 +14,9 @@ return [
     'Total' => 'Total',
     'Action' => 'Acción',
     'Product' => 'Producto',
+    'ID' => 'ID',
+    'Customer' => 'Comprador',
+    'Note' => 'Nota',
+    'Actions' => 'Acciones',
+    'Count' => 'Cuanta',
 ];

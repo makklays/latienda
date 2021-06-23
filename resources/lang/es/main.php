@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'Your_profile_was_updated_suceessfully' => '¡Sus datos se han actualizado con éxito!',
     'Delete' => 'Borrar',
     'History' => 'La historia',
     'Flore' => 'La flore',

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'Your_profile_was_updated_suceessfully' => 'Твои данные были успешно обновлены!',
     'Delete' => 'Удалить',
     'History' => 'История',
     'Flore' => 'Цветок',
@@ -35,7 +36,7 @@ return [
     'delivery' => 'Доставка',
     'Team' => 'Основное',
     'Information' => 'Информация',
-    'blog' => 'Блог',
+    'blog' => 'Блог про цветы',
     'Company' => 'Компания',
 
     'Sign In' => 'Логин',
