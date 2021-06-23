@@ -1,4 +1,8 @@
 <?php
+/**
+ * Author: Alexander Kuziv
+ * Email: alexander@makklays.com
+ */
 
 namespace App\Models\Dictionaries;
 
