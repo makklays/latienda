@@ -14,6 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Latienda'),
+    'domain' => env('DOMAIN', 'latienda.loc'),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,15 +81,15 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     // доступные языки
     'available_locales' => [
         'en',
         'ru',
         'es',
-        'fr',
-        'de'
+        //'fr',
+        //'de'
     ],
 
     /*
