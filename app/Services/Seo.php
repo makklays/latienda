@@ -5,7 +5,7 @@ namespace App\Services;
 class Seo
 {
     //
-    public function metaTags($page = null, $showUrls = 1)
+    public function metaTags($page = null, $title = null, $showUrls = 1)
     {
         $seo = new \stdClass();
         $seo->server_name = request()->server('SERVER_NAME');
@@ -16,9 +16,9 @@ class Seo
         $seo->short_url = $newUrl;
         $seo->show_urls = $showUrls;
 
-        $seo->title = trans('main.' . $page . '_title');
-        $seo->description = trans('main.' . $page . '_description');
-        $seo->keywords = trans('main.'. $page . '_keywords');
+        $seo->title = trans('seo.' . $page . '_title', ['title' => $title, 'SITE' => config('app.name')]);
+        $seo->description = trans('seo.' . $page . '_description', ['title' => $title, 'SITE' => config('app.name')]);
+        $seo->keywords = trans('seo.'. $page . '_keywords', ['title' => $title, 'SITE' => config('app.name')]);
 
         return $seo;
     }
