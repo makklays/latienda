@@ -178,6 +178,7 @@ div.center-price {
 }
 .breadcrumb-item {
     font-size: 18px;
+    color: grey;
 }
 
 p {
@@ -711,16 +712,6 @@ div.bg-green > h1 {
     width: 100px;
 }
 
-.btn-success {
-    background-color: #267f00;
-    border-color: #267f00;
-    border-radius: unset;
-    /*font-size: 21px;*/
-}
-.btn-success:hover {
-    background-color: #46bf00;
-    border-color: #267f00;
-}
 .btn-outline-success {
     color: #267f00;
     border-color: #267f00;
@@ -917,7 +908,7 @@ h1.color-h1, h2.color-h2, h1, h2, h3 {
 }
 
 .breadcrumb a:visited, .breadcrumb a:link, .breadcrumb a:hover {
-    color: grey;
+    color: #d0a813;
 }
 
 .btn-coche {
@@ -932,3 +923,17 @@ h1.color-h1, h2.color-h2, h1, h2, h3 {
     border-color: #b69721;
     color: #FFF;
 }
+
+/**/
+.btn-success {
+    background-color: #b69721;
+    border-color: #b69721;
+    border-radius: unset;
+    /*font-size: 21px;*/
+}
+a.btn-success:hover, a.btn-success:visited, a.btn-success:link,
+.btn-success:hover, .btn-success:visited, .btn-success:link {
+    background-color: #d0a813;
+    border-color: #b69721;
+}
+/**/

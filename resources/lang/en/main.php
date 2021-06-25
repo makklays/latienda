@@ -68,6 +68,8 @@ return [
     // Payment
     'Thanks for your order!' => 'Thanks for your order!',
     'Checkout canceled' => 'Checkout canceled',
+    'checkout_canceled_description' => 'Forgot to add something to your cart? Shop around then come back to pay!',
+    'Thanks_for_order_description' => 'We appreciate your business! If you have any questions, please email <a href="mailto: :email" class="a-link">:email</a>',
 
     'dashboard' => 'My account',
     'dashboard_history' => 'History of purchases',
@@ -79,6 +81,7 @@ return [
     'cart' => 'Cart',
     'Shopping cart' => 'Shopping cart',
     'Similares' => 'Related products',
+    'Empty_cart_text' => 'Now your shopping cart is empty! <br/> You can start your purchases with the <a href=":url" class="a-link">categories</a> of flowers',
 
     'About_description' => 'Description text for page "About" .....',
     'Delivery_description' => 'Description text for page "Delivery" .....',

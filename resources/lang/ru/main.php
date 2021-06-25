@@ -31,7 +31,7 @@ return [
     'Checkout' => 'Оформление заказа',
     'about' => 'Про нас',
     'home' => 'Главная',
-    'categories' => 'Категории',
+    'categories' => 'Категории цветов',
     'contacts' => 'Контакты',
     'delivery' => 'Доставка',
     'Team' => 'Основное',
@@ -66,8 +66,10 @@ return [
 
 
     // Payment
-    'Thanks for your order!' => 'Thanks for your order!',
-    'Checkout canceled' => 'Checkout canceled',
+    'Thanks for your order!' => 'Благодарим за твой заказ!',
+    'Checkout canceled' => 'Отмена оплаты',
+    'checkout_canceled_description' => 'Забыли добавить что-нибудь в свою корзину? Зайди в магазин, а потом возвращайся, чтобы заплатить!',
+    'Thanks_for_order_description' => 'Мы ценим Ваш выбор! Если у Вас есть вопросы, пожалуйста, напишите <a href="mailto: :email" class="a-link">:email</a>',
 
     'dashboard' => 'Мой аккаунт',
     'dashboard_history' => 'История покупок',
@@ -79,6 +81,7 @@ return [
     'cart' => 'Корзина',
     'Shopping cart' => 'Корзина',
     'Similares' => 'Связанные продукты',
+    'Empty_cart_text' => 'Сейчас твоя корзина пуста! <br/> Можешь начать свои покупки выбирая <a href=":url" class="a-link">категории</a> цветов',
 
     'About_description' => 'Текст описания для страницы "Про нас" .....',
     'Delivery_description' => 'Текст описания для страницы "Доставка" .....',

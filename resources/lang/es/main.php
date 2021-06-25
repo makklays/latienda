@@ -68,6 +68,8 @@ return [
     // Payment
     'Thanks for your order!' => 'Gracias para tú órdene',
     'Checkout canceled' => 'Checkout cancelado',
+    'checkout_canceled_description' => '¿Te olvidaste de poner algo en tu cesta? Ir a la tienda y volver',
+    'Thanks_for_order_description' => 'Apreciamos su negocio! Si tiene alguna pregunta, por favor envíe un correo electrónico <a href="mailto: :email" class="a-link">:email</a>',
 
     'dashboard' => 'Mi cuenta',
     'dashboard_history' => 'Historia de la compra',
@@ -79,6 +81,7 @@ return [
     'cart' => 'Cesta',
     'Shopping cart' => 'Cesta de compra',
     'Similares' => 'Productos relacionados',
+    'Empty_cart_text' => 'Ahora tu cesta es suvio! <br/> Puedes empezar tus comprados con las <a href=":url" class="a-link">categorías</a> de flores',
 
     'About_description' => 'Texto de la descripción de la página "Sobre nosotros" .....',
     'Delivery_description' => 'Texto de la descripción de la página "Entrega" .....',
