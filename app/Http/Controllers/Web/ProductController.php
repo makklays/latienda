@@ -29,13 +29,13 @@ class ProductController extends Controller
     // Page - One product
     public function show(Request $request, $locale, $slug)
     {
-        $seo = Seo::metaTags('one_product');
-
         $product = Product::query()->where(['is_active' => '1', 'slug' => $slug])->firstOrFail();
 
         if (empty($product->title)) {
             return redirect('404');
         }
+
+        $seo = Seo::metaTags('one_product', $product->title);
 
         // re-hacera (!!!) tarde
         $cat_parent = '';

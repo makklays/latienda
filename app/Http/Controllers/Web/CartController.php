@@ -100,7 +100,7 @@ class CartController extends Controller
                     'd_order_status_id' => 1,
                     'total_price' => ( $product->price * $quantity ),
                     'count_products' => 1,
-                    'd_delivery_id' => 1,
+                    'd_delivery_id' => 0,
                     'd_payment_id' => 1
                 ]);
 
@@ -134,7 +134,7 @@ class CartController extends Controller
 
         return redirect( route('cart', app()->getLocale()), 302 )->with([
             'flash_type' => 'success',
-            'flash_message' => 'Successfull! You add in cart your choice',
+            'flash_message' => trans('main.Add_to_cart_successfuly'),
         ]);
     }
 
@@ -150,10 +150,11 @@ class CartController extends Controller
         try {
             // get - order_id
             $orderItem = OrderItem::query()->where(['id' => $order_item_id])->first();
-            OrderItem::query()->where(['id' => $order_item_id])->delete();
+            $orderItemID = $orderItem->order_id;
+            $orderItem->delete();
 
             // get Order
-            $order = Order::query()->where(['id' => $orderItem->order_id])->first();
+            $order = Order::query()->where(['id' => $orderItemID])->first();
 
             // get sum price_total
             $price_total = OrderItem::query()
@@ -189,7 +190,7 @@ class CartController extends Controller
         return redirect(route('cart', ['locale' => app()->getLocale()]))
             ->with([
                 'flash_type' => 'success',
-                'flash_message' => 'Successfull! You delete from cart your product',
+                'flash_message' => trans('main.Deleted_from_cart_successfuly'),
             ]);
     }
 }

@@ -24,6 +24,7 @@ class AddProductRequest extends FormRequest
     public function rules()
     {
         return [
+            'img[]' => 'image|mimes:jpeg,png,jpg,gif,svg',
             'sku' => 'required|min:3|max:255',
             'category_id' => 'required|integer',
             'title' => 'required|min:3',

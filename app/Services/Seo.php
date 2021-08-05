@@ -35,4 +35,15 @@ class Seo
 
         return $newUrl;
     }
+
+    public function getRealIP()
+    {
+
+    }
+
+    public function isMovile()
+    {
+
+    }
+
 }

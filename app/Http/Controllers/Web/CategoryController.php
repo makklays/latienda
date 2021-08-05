@@ -16,9 +16,9 @@ class CategoryController extends Controller
     // Page - Categories
     public function index(Request $request)
     {
-        $seo = Seo::metaTags('categories');
-
         $categories = Category::query()->where(['is_active' => 1, 'parent_id' => 0])->get();
+
+        $seo = Seo::metaTags('categories');
 
         return view('categories.index', [
             'seo' => $seo,
@@ -29,8 +29,6 @@ class CategoryController extends Controller
     // Page - Category
     public function show(Request $request, $slug)
     {
-        $seo = Seo::metaTags('one_category');
-
         // parsing path
         $path_arr = explode('/', $request->path);
         $cats = []; $cat_id = ''; $full_path_arr = [];
@@ -51,6 +49,8 @@ class CategoryController extends Controller
 
         // Busco category
         $category = Category::query()->where(['is_active' => 1, 'id' => $cat_id])->firstOrFail();
+
+        $seo = Seo::metaTags('one_category', $category->title);
 
         // Busco children de category
         $category_children = [];
