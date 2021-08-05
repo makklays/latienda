@@ -13,13 +13,28 @@
         <div class="col-md-12">
 
             <br/>
-            {{ $user->name }} / {{ $user->email }} <div style="color:grey;">{{ !empty($user->email_verified_at) ? '' : trans('main.Dont_confirm_email') }}</div>
+
+            <?php if(!empty($user->name)): ?>
+                {{ $user->name }} / {{ $user->email }} <div style="color:grey;">{{ !empty($user->email_verified_at) ? '' : trans('main.Dont_confirm_email') }}</div>
+            <?php endif; ?>
+
             <br/>
-            <a href="{{ route('da_history', app()->getLocale()) }}">{{ trans('main.dashboard_history') }}</a>
+
+            <a href="{{ route('da_profile', app()->getLocale()) }}" class="a-link"><i class="fa fa-address-card"></i> {{ trans('main.dashboard_profile') }}</a>
             <br/>
-            <a href="{{ route('da_status', app()->getLocale()) }}">{{ trans('main.dashboard_orders') }}</a>
+
+            <a href="{{ route('da_history', app()->getLocale()) }}" class="a-link"><i class="fa fa-history"></i> {{ trans('main.dashboard_history') }}</a>
             <br/>
-            <a href="{{ route('cart', app()->getLocale()) }}">{{ trans('main.dashboard_cart') }}</a>
+
+            <a href="{{ route('da_status', app()->getLocale()) }}" class="a-link"><i class="fa fa-truck"></i> {{ trans('main.dashboard_orders') }}</a>
+            <br/>
+
+            <a href="{{ route('cart', app()->getLocale()) }}" class="a-link"><i class="fa fa-shopping-cart"></i> {{ trans('main.dashboard_cart') }}</a>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             <br/>
             <br/>
             <br/>

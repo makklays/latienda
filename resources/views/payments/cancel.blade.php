@@ -18,8 +18,13 @@
     <div class="row">
         <div class="col-md-12">
             <section>
-                <p>Forgot to add something to your cart? Shop around then come back to pay!</p>
+                <p>{{ trans('main.checkout_canceled_description') }}</p>
             </section>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
         </div>
     </div>
 

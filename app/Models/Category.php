@@ -1,4 +1,8 @@
 <?php
+/**
+ * Author: Alexander Kuziv
+ * Email: alexander@makklays.com
+ */
 
 namespace App\Models;
 
@@ -35,5 +39,11 @@ class Category extends Model
     public function children_category()
     {
         return $this->hasMany(Category::class, 'parent_id', 'id');
+    }
+
+    // products
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'category_id', 'id');
     }
 }

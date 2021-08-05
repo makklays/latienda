@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Facades\Seo;
+use App\Facades\Word;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AddCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class CategoryController extends Controller
 {
@@ -41,7 +43,7 @@ class CategoryController extends Controller
     {
         $category = Category::create([
             'title' => $request->title,
-            'slug' => $request->title,
+            'slug' => Word::translite($request->title),
             'parent_id' => $request->category_id,
             'description' => $request->description,
             'is_active' => !empty($request->is_active) ? 1 : 0,
@@ -52,14 +54,22 @@ class CategoryController extends Controller
             //$name = $request->file('img')->getClientOriginalName();
             $extension = $request->file('img')->extension();
             $new_name = 'category.'.$extension;
-            $path = $request->file('img')->storeAs('categories/'.$category->id, $new_name);
+
+            // resize image
+            $img = $request->file('img');
+            $resized_img = Image::make($img);
+            $resized_img->fit(200)->save($img);
+            $path = $img->storeAs('categories/' . $category->id . '/200', $new_name);
+
+            $resized_img->fit(100)->save($img);
+            $path = $img->storeAs('categories/' . $category->id . '/100', $new_name);
 
             $category->img = $new_name;
             $category->save();
         }
 
         return redirect( route('adm_category', app()->getLocale()) )
-            ->with('flash_message', 'Category was add suceessfully!')
+            ->with('flash_message', trans('admin.Category_was_add_suceessfully!'))
             ->with('flash_type', 'success');
     }
 
@@ -87,7 +97,7 @@ class CategoryController extends Controller
         $category = Category::query()->where(['id' => $id])->first();
 
         $category->title = $request->title;
-        $category->slug = $request->slug;
+        $category->slug = Word::translite($request->slug);
         $category->parent_id = $request->category_id;
         $category->description = $request->description;
         $category->is_active = !empty($request->is_active) ? '1' : '0';
@@ -97,13 +107,22 @@ class CategoryController extends Controller
         if (!empty($request->img)) {
             $extension = $request->file('img')->extension();
             $new_name = 'category.'.$extension;
-            $path = $request->file('img')->storeAs('categories/'.$category->id, $new_name);
+
+            // resize image
+            $img = $request->file('img');
+            $resized_img = Image::make($img);
+            $resized_img->fit(200)->save($img);
+            $path = $img->storeAs('categories/' . $category->id . '/200', $new_name);
+
+            $resized_img->fit(100)->save($img);
+            $path = $img->storeAs('categories/' . $category->id . '/100', $new_name);
+
             $category->img = $new_name;
             $category->save();
         }
 
         return redirect( route('adm_category', [app()->getLocale(), 'id' => $request->id]) )
-            ->with('flash_message', 'Category was edit suceessfully!')
+            ->with('flash_message', trans('admin.Category_was_edit_suceessfully!'))
             ->with('flash_type', 'success');
     }
 
@@ -127,7 +146,7 @@ class CategoryController extends Controller
         $category->delete();
 
         return redirect( route('adm_category', app()->getLocale()) )
-            ->with('flash_message', 'Category ID='.$category->id.' was delete suceessfully!')
+            ->with('flash_message', trans('admin.Category ID=:ID was delete suceessfully!', ['ID' => $category->id]))
             ->with('flash_type', 'success');
     }
 }

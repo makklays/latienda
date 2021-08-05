@@ -15,8 +15,12 @@ class CreateDDeliveryTable extends Migration
     {
         Schema::create('d_delivery', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
-            $table->longText('description')->nullable();
+            $table->string('name_ru', 255);
+            $table->string('name_en', 255);
+            $table->string('name_es', 255);
+            $table->text('description_ru')->nullable();
+            $table->text('description_en')->nullable();
+            $table->text('description_es')->nullable();
             $table->timestamps();
         });
     }

@@ -1,4 +1,8 @@
 <?php
+/**
+ * Author: Alexander Kuziv
+ * Email: alexander@makklays.com
+ */
 
 namespace App\Models;
 
@@ -27,4 +31,9 @@ class Product extends Model
         'note',
         'is_active',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
 }

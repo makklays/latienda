@@ -5,6 +5,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('/', app()->getLocale()) }}" class="a-green"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+            <li class="breadcrumb-item"><a href="{{ route('categories', ['locale' => app()->getLocale()]) }}" class="a-green">{{ trans('main.categories') }}</a></li>
             <?php if(!empty($cat_parent) && !empty($cat_parent->full_path)): ?>
                 <li class="breadcrumb-item"><a href="{{ route('category', ['locale' => app()->getLocale(), 'path' => $cat_parent->full_path]) }}" class="a-green">{{ $cat_parent->title }}</a></li>
             <?php endif; ?>
@@ -17,16 +18,16 @@
 
     <div class="row">
         <div class="col-md-12">
-            <br/><h1 class="text-center text-design2">{{ $product->title }}</h1> <br/>
+            <br/><h1 class="text-center text-design2 color-h1">{{ $product->title }}</h1> <br/>
         </div>
 
         <div class="col-md-12">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                    <a class="nav-link active a-flore" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">{{ trans('main.Flore') }}</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Description</a>
+                    <a class="nav-link a-flore" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">{{ trans('main.History') }}</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
@@ -38,15 +39,14 @@
                             <div>
                                 <?php if(!empty($product->img)): ?>
                                     <?php foreach($arr_imgs as $k => $img_name): ?>
-                                        <?php if($k == 1): ?>
-                                            <a id="id-a-center" href="{{ asset('products/'.$product->id.'/'.$img_name) }}" data-fancybox data-caption="{{ env('APP_NAME') }} | {{ $product->title }}" >
-                                                <img id="id-img-center" src="{{ asset('products/'.$product->id.'/'.$img_name) }}" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $product->title }}" alt="..." />
-                                            </a>
+                                        <?php if($k == 0): ?>
+                                            <a id="id-a-center" href="{{ asset('products/'.$product->id.'/600/'.$img_name) }}" data-fancybox data-caption="{{ config('app.name') }} | {{ $product->title }}" >
+                                                <img id="id-img-center" src="{{ asset('products/'.$product->id.'/600/'.$img_name) }}" class="img img-fluid" title="{{ config('app.name') }} | {{ $product->title }}" alt="..." /></a>
                                         <?php endif; ?>
                                     <?php endforeach; ?>
                                 <?php else: ?>
                                     <a href="{{ route('product', ['slug' => $product->slug, 'locale' => app()->getLocale()]) }}" >
-                                        <img src="{{ asset('images/no-logo.png') }}" style="width:200px;" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $product->title }}" alt="no-foto" />
+                                        <img src="{{ asset('images/no-logo.png') }}" style="width:200px;" class="img img-thumbnail" title="{{ config('app.name') }} | {{ $product->title }}" alt="no-foto" />
                                     </a>
                                 <?php endif; ?>
                             </div>
@@ -54,9 +54,8 @@
                             <div>
                                 <p class="imglist" style="max-width: 1000px;">
                                     <?php foreach($arr_imgs as $k => $img_name): ?>
-                                        <a href="{{ asset('products/'.$product->id.'/'.$img_name) }}" data-fancybox="images" data-caption="{{ env('APP_NAME') }} | {{ $product->title }}" >
-                                            <img class="img-thumb-hover" src="{{ asset('products/'.$product->id.'/'.$img_name) }}" style="width:100px;" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $product->title }}" alt="..." />
-                                        </a>
+                                        <a href="{{ asset('products/'.$product->id.'/600/'.$img_name) }}" data-fancybox="images" data-caption="{{ config('app.name') }} | {{ $product->title }}" >
+                                            <img class="img-thumb-hover" src="{{ asset('products/'.$product->id.'/100/'.$img_name) }}" style="width:100px; margin-top:5px;" title="{{ config('app.name') }} | {{ $product->title }}" alt="..." /></a>
                                     <?php endforeach; ?>
                                 </p>
                             </div>
@@ -79,7 +78,7 @@
                                 @csrf
                                 <input type="hidden" name="sku" value="{{ $product->sku }}" />
                                 <input id="id-quantity" type="hidden" name="quantity" value="1" />
-                                <input type="submit" class="btn btn-success" value="Add to cart" />
+                                <input type="submit" class="btn btn-success" value="{{ trans('main.Add_to_cart') }}" />
                             </form>
                             <br/>
                             <br/>
@@ -99,7 +98,7 @@
         </div>
 
         <div class="col-md-12">
-            <h2 class="text-center" style="font-size:50px; padding:50px 0;">Productos relacionados</h2>
+            <h2 class="text-center color-h2" style="font-size:50px; padding:50px 0;">{{ trans('main.Similares') }}</h2>
             <div>
                 <div class="row row-cols-1 row-cols-md-3">
                     <?php foreach($products_relacionados as $k => $itm): ?>
@@ -109,33 +108,33 @@
                                     <?php if(!empty($itm->img)): ?>
                                     <?php $imgs = explode('|', $itm->img); ?>
                                     <?php foreach($imgs as $k => $img_name): ?>
-                                    <?php if($k == 1): ?>
+                                    <?php if($k == 0): ?>
                                     <a href="{{ route('product', ['slug' => $itm->slug, 'locale' => app()->getLocale()]) }}" >
-                                        <img src="{{ asset('products/'.$itm->id.'/'.$img_name) }}" class="img img-fluid" title="{{ env('APP_NAME') }} | {{ $itm->title }}" alt="..." />
+                                        <img src="{{ asset('products/'.$itm->id.'/350/'.$img_name) }}" class="img img-fluid" title="{{ config('app.name') }} | {{ $itm->title }}" alt="..." />
                                     </a>
                                     <?php endif; ?>
                                     <?php endforeach; ?>
                                     <?php else: ?>
                                     <a href="{{ route('product', ['slug' => $itm->slug, 'locale' => app()->getLocale()]) }}" >
-                                        <img src="{{ asset('images/no-logo.png') }}" style="width:200px;" class="img img-thumbnail" title="{{ env('APP_NAME') }} | {{ $itm->title }}" alt="no-foto" />
+                                        <img src="{{ asset('images/no-logo.png') }}" style="width:200px;" class="img img-thumbnail" title="{{ config('app.name') }} | {{ $itm->title }}" alt="no-foto" />
                                     </a>
                                     <?php endif; ?>
                                 </div>
 
                                 <div class="text-center">
-                                    <a href="{{ route('product', ['slug' => $itm->slug, 'locale' => app()->getLocale()]) }}" class="a-green" >
+                                    <a href="{{ route('product', ['slug' => $itm->slug, 'locale' => app()->getLocale()]) }}" class="a-flore" >
                                         {{ $itm->title }}
                                     </a>
                                 </div>
 
                                 <div class="text-center">
-                                    <small style="color:grey; font-size:14px;">CODE: {{ $itm->sku }}</small>
+                                    <small style="color:grey; font-size:14px;">Code: {{ $itm->sku }}</small>
                                 </div>
 
                                 <!--div>{{ $itm->description }}</div-->
 
                                 <div style="padding-top:20px;" class="text-center">
-                                    {{ $itm->price }} EUR <strike style="font-size:16px; color:grey;">{{ $itm->old_price }} EUR</strike>
+                                    {{ $itm->price }} € <strike style="font-size:16px; color:grey;">{{ $itm->old_price }} €</strike>
                                 </div>
 
                                 <!--div style="padding-top: 20px;">
@@ -206,7 +205,7 @@
 
         // big foto in center by mouseover in product
         $('.img-thumb-hover').on('mouseenter', function(){
-            var url_img = $(this).attr('src');
+            var url_img = $(this).parent().attr('href');
             //console.log(url_img);
             $('#id-img-center').attr('src', url_img);
             $('#id-a-center').attr('href', url_img);

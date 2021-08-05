@@ -22,7 +22,15 @@ class CreateOrdersTable extends Migration
             $table->integer('count_products')->default(0);
             $table->integer('d_delivery_id')->unsigned();
             $table->integer('d_payment_id')->unsigned();
+            $table->string('firstname')->nullable();
+            $table->string('lastname')->nullable();
+            $table->string('provincia')->nullable();
+            $table->string('city')->nullable();
             $table->text('address')->nullable();
+            $table->string('zip')->nullable();
+            $table->string('period')->nullable();
+            $table->string('date')->nullable();
+            $table->string('dedication')->nullable();
             $table->text('note')->nullable();
             $table->timestamps();
         });

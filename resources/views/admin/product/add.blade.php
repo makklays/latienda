@@ -3,9 +3,9 @@
 @section('content')
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Product / Add</h1>
+        <h1 class="h2"><i class="fa fa-shopping-basket"></i> {{ trans('admin.Product') }} / {{ trans('admin.Add') }}</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
-            <a href="{{ route('adm_product_add', app()->getLocale()) }}" class="btn btn-outline-success"><i class="fa fa-plus"></i> Add product</a>
+
         </div>
     </div>
 
@@ -23,7 +23,7 @@
                     <?php endif; ?>
                 </div>
                 <div class="form-group">
-                    <label for="idTitle">Title</label>
+                    <label for="idTitle">{{ trans('admin.Title') }}</label>
                     <input type="text" name="title" value="{{ old('title') }}" class="form-control" id="idTitle" />
 
                     <?php if ($errors->has('title')): ?>
@@ -31,9 +31,9 @@
                     <?php endif; ?>
                 </div>
                 <div class="form-group">
-                    <label for="idParentId">Category</label>
+                    <label for="idParentId">{{ trans('admin.Category') }}</label>
                     <select name="category_id" class="form-control" id="idParentId" >
-                        <option value="">-- Select category of product --</option>
+                        <option value="">-- {{ trans('admin.Select_category_of_product') }} --</option>
                         <?php foreach($categories as $k => $item): ?>
                         <option value="{{ $item->id }}" {{ $item->id == old('category_id') ? 'selected="selected"' : '' }} >{{ $item->id }} - {{ $item->title }}</option>
                         <?php endforeach; ?>
@@ -44,7 +44,7 @@
                     <?php endif; ?>
                 </div>
                 <div class="form-group">
-                    <label for="idDescription">Description</label>
+                    <label for="idDescription">{{ trans('admin.Description') }}</label>
                     <textarea name="description" class="form-control" id="idDescription" rows="3" cols="6" >{{ old('description') }}</textarea>
 
                     <?php if ($errors->has('description')): ?>
@@ -52,7 +52,7 @@
                     <?php endif; ?>
                 </div>
                 <div class="form-group">
-                    <label for="idFullDescription">Full description</label>
+                    <label for="idFullDescription">{{ trans('admin.Full_description') }}</label>
                     <textarea name="full_description" class="form-control" id="idFullDescription" rows="5" cols="6" >{{ old('full_description') }}</textarea>
 
                     <?php if ($errors->has('full_description')): ?>
@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="idPrice">Price (USD)</label>
+                    <label for="idPrice">{{ trans('admin.Price') }} (EUR)</label>
                     <input type="text" name="price" value="{{ old('price') }}" class="form-control" id="idPrice" />
 
                     <?php if ($errors->has('price')): ?>
@@ -69,7 +69,7 @@
                     <?php endif; ?>
                 </div>
                 <div class="form-group">
-                    <label for="idOldPrice">Old Price (USD)</label>
+                    <label for="idOldPrice">{{ trans('admin.Old_price') }} (EUR)</label>
                     <input type="text" name="old_price" value="{{ old('old_price') }}" class="form-control" id="idOldPrice" />
 
                     <?php if ($errors->has('old_price')): ?>
@@ -78,7 +78,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="idQuantity">Quantity</label>
+                    <label for="idQuantity">{{ trans('admin.Quantity') }}</label>
                     <input type="text" name="quantity" value="{{ old('quantity') }}" class="form-control" id="idQuantity" />
 
                     <?php if ($errors->has('quantity')): ?>
@@ -86,7 +86,7 @@
                     <?php endif; ?>
                 </div>
                 <div class="form-group">
-                    <label for="idNote">Note</label>
+                    <label for="idNote">{{ trans('admin.Note') }}</label>
                     <textarea name="note" class="form-control" id="idNote" rows="3" >{{ old('note') }}</textarea>
 
                     <?php if ($errors->has('note')): ?>
@@ -95,7 +95,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="idImg">Image</label>
+                    <label for="idImg">{{ trans('admin.Images') }}</label>
                     <input type="file" multiple name="img[]" value="{{ old('img') }}" class="form-control" id="idImg" />
 
                     <?php if ($errors->has('img')): ?>
@@ -104,11 +104,11 @@
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" name="is_active" class="form-check-input" id="idActive" checked="checked" />
-                    <label class="form-check-label" for="idActive" >is active</label>
+                    <label class="form-check-label" for="idActive" >{{ trans('admin.Is_active') }}</label>
                 </div>
 
-                <a href="{{ route('adm_product', app()->getLocale()) }}" class="btn btn-success" style="margin-right: 20px;" >Cancel</a>
-                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add product</button>
+                <a href="{{ route('adm_product', app()->getLocale()) }}" class="btn btn-success" style="margin-right: 20px;" > {{ trans('admin.Cancel') }}</a>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> {{ trans('admin.Add_product') }}</button>
 
                 <br/><br/>
             </form>

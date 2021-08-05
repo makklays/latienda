@@ -1,4 +1,8 @@
 <?php
+/**
+ * Author: Alexander Kuziv
+ * Email: alexander@makklays.com
+ */
 
 namespace App\Models;
 
@@ -47,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(\App\Models\Api\Category::class);
     }*/
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'user_id', 'id');
+    }
 }

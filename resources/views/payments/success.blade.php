@@ -19,10 +19,14 @@
         <div class="col-md-12">
             <section>
                 <p>
-                    We appreciate your business! If you have any questions, please email
-                    <a href="mailto:orders@latienda.loc">orders@latienda.loc</a>.
+                    <?= trans('main.Thanks_for_order_description', ['email' => 'orders@latienda.loc']) ?>
                 </p>
             </section>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
         </div>
     </div>
 

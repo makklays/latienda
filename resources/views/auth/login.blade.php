@@ -58,7 +58,7 @@
 
                 <div class="form-group row mb-0">
                     <div class="col-md-7 offset-md-3">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-coche">
                             {{ trans('main.Login') }}
                         </button>
 

@@ -15,4 +15,12 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-12">
+            {{ trans('main.Delivery_description') }}
+
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        </div>
+    </div>
+
 @endsection

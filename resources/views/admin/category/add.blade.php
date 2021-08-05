@@ -3,9 +3,9 @@
 @section('content')
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Category / Add</h1>
+        <h1 class="h2"><i class="fa fa-server"></i> {{ trans('admin.Category') }} / {{ trans('admin.Add') }}</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
-            <a href="{{ route('adm_category_add', app()->getLocale()) }}" class="btn btn-outline-success"><i class="fa fa-plus"></i> Add category</a>
+            <a href="{{ route('adm_category_add', app()->getLocale()) }}" class="btn btn-outline-success"><i class="fa fa-plus"></i> {{ trans('admin.Add_category') }}</a>
         </div>
     </div>
 
@@ -15,7 +15,7 @@
                 @csrf
 
                 <div class="form-group">
-                    <label for="idTitle">Title</label>
+                    <label for="idTitle">{{ trans('admin.Title') }}</label>
                     <input type="text" name="title" value="{{ old('title') }}" class="form-control" id="idTitle" />
 
                     <?php if ($errors->has('title')): ?>
@@ -23,9 +23,9 @@
                     <?php endif; ?>
                 </div>
                 <div class="form-group">
-                    <label for="idParentId">Parent Category</label>
+                    <label for="idParentId">{{ trans('admin.Parent_category') }}</label>
                     <select name="category_id" class="form-control" id="idParentId" >
-                        <option value="0">-- Parent categories --</option>
+                        <option value="0">-- {{ trans('admin.Select_category_of_product') }} --</option>
                         <?php foreach($categories as $k => $item): ?>
                             <option value="{{ $item->id }}" {{ $item->id == old('category_id') ? 'selected="selected"' : '' }} >{{ $item->id }} - {{ $item->title }}</option>
                         <?php endforeach; ?>
@@ -36,7 +36,7 @@
                     <?php endif; ?>
                 </div>
                 <div class="form-group">
-                    <label for="idDescription">Description</label>
+                    <label for="idDescription">{{ trans('admin.Description') }}</label>
                     <textarea name="description" class="form-control" id="idDescription" rows="3" cols="6" >{{ old('description') }}</textarea>
 
                     <?php if ($errors->has('description')): ?>
@@ -44,7 +44,7 @@
                     <?php endif; ?>
                 </div>
                 <div class="form-group">
-                    <label for="idImg">Image</label>
+                    <label for="idImg">{{ trans('admin.Images') }}</label>
                     <input type="file" name="img" value="{{ old('img') }}" class="form-control" id="idImg" />
 
                     <?php if ($errors->has('img')): ?>
@@ -53,15 +53,17 @@
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" name="is_active" class="form-check-input" id="idActive" checked="checked" />
-                    <label class="form-check-label" for="idActive" {{ old('is_active') }} >is active</label>
+                    <label class="form-check-label" for="idActive" {{ old('is_active') }} >{{ trans('admin.Is_active') }}</label>
                 </div>
 
-                <a href="{{ route('adm_category', app()->getLocale()) }}" class="btn btn-success" style="margin-right: 20px;" >Cancel</a>
-                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add category</button>
+                <a href="{{ route('adm_category', app()->getLocale()) }}" class="btn btn-success" style="margin-right: 20px;" > {{ trans('admin.Cancel') }}</a>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> {{ trans('admin.Add_category') }}</button>
 
                 <br/><br/>
             </form>
         </div>
     </div>
+
+    <br/><br/>
 
 @endsection

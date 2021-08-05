@@ -14,9 +14,50 @@
         <div class="col-md-12">
 
             <br/>
-            {{ $user->name }} / {{ $user->email }}
+            <h3>{{ trans('main.dashboard_orders') }}</h3>
             <br/>
-            <br/>
+
+            <?php if (!empty($orders) && $orders->count() > 0): ?>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th class="text-center">{{ trans('status.Number') }}</th>
+                        <th>{{ trans('status.Status') }}</th>
+                        <th class="text-center">{{ trans('status.Total') }}</th>
+                        <th class="text-center">{{ trans('status.Date') }}</th>
+                        <th class="text-center">{{ trans('status.Action') }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($orders as $k => $item): ?>
+                        <tr>
+                            <td class="text-center">{{ $item->id }}</td>
+                            <td>
+                                <?php $main = 'status.'.$item->order_status->name ?>
+                                {{ trans($main) }}
+                            </td>
+                            <td class="text-center">
+                                {{ $item->total_price }} €
+                            </td>
+                            <td class="text-center">
+                                {{ $item->updated_at }}
+                            </td>
+                            <td class="text-center">
+                                <?php if($item->d_order_status_id == 1): ?>
+                                    <a href="{{ route('checkout', app()->getLocale()) }}" class="btn btn-success">{{ trans('main.Checkout-order') }}</a>
+                                <?php elseif($item->d_order_status_id == 2): ?>
+                                    <a href="{{ route('purchase', app()->getLocale()) }}" class="btn btn-success"><i class="fa fa-money-check"></i> {{ trans('main.Purchase') }}</a>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+
+                    </tbody>
+                </table>
+            <?php else: ?>
+                <i style="color:grey;">{{ trans('main.Empty') }}</i>
+            <?php endif; ?>
+
             <br/>
             <br/>
             <br/>

@@ -15,6 +15,14 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-12">
+            {{ trans('main.Contacts_description') }}
+
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        </div>
+    </div>
+
     <script>
         var map;
         function initMap() {
