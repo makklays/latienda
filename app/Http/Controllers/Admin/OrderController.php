@@ -64,7 +64,7 @@ class OrderController extends Controller
         $order->save();
 
         return redirect( route('adm_order_show', [app()->getLocale(), 'id' => $id]) )
-            ->with('flash_message', 'Order was edit suceessfully!')
+            ->with('flash_message', trans('admin.Order_was_edit_suceessfully!'))
             ->with('flash_type', 'success');
     }
 }
