@@ -3,15 +3,28 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Facades\Seo;
+use App\Facades\Word;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AddProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+//use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
+use Intervention\Image\ImageManager;
+use Intervention\Image\ImageManagerStatic;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        if (Auth::guest()) {
+            return redirect( route('/', [app()->getLocale()]), 302 );
+        }
+    }
+
     //
     public function index()
     {
@@ -45,7 +58,7 @@ class ProductController extends Controller
             'sku' => $request->sku,
             'category_id' => $request->category_id,
             'title' => $request->title,
-            'slug' => $request->title,
+            'slug' => Word::translite($request->title),
             'description' => !empty($request->description) ? $request->description : null,
             'full_description' => !empty($request->full_description) ? $request->full_description : null,
             'price' => !empty($request->price) ? $request->price : 0.00,
@@ -61,7 +74,16 @@ class ProductController extends Controller
             foreach($request->file('img') as $k => $img) {
                 $extension = $img->extension();
                 $new_name = 'product'.$i.'.' . $extension;
-                $path = $img->storeAs('products/' . $product->id, $new_name);
+
+                $resized_img = Image::make($img);
+                $resized_img->fit(600)->save($img);
+                $path = $img->storeAs('products/' . $product->id . '/600', $new_name);
+
+                $resized_img->fit(350)->save($img);
+                $path = $img->storeAs('products/' . $product->id . '/350', $new_name);
+
+                $resized_img->fit(100)->save($img);
+                $path = $img->storeAs('products/' . $product->id . '/100', $new_name);
 
                 $arr_imgs[] .= $new_name;
                 $i++;
@@ -98,7 +120,7 @@ class ProductController extends Controller
 
         $product->sku = $request->sku;
         $product->title = $request->title;
-        $product->slug = $request->slug;
+        $product->slug = Word::translite($request->slug);
         $product->category_id = $request->category_id;
         $product->description = !empty($request->description) ? $request->description : null;
         $product->full_description = !empty($request->full_description) ? $request->full_description : null;
@@ -116,7 +138,17 @@ class ProductController extends Controller
             foreach($request->file('img') as $k => $img) {
                 $extension = $img->extension();
                 $new_name = 'product'.$i.'.' . $extension;
-                $path = $img->storeAs('products/' . $product->id, $new_name);
+
+                // resize image
+                $resized_img = Image::make($img);
+                $resized_img->fit(600)->save($img);
+                $path = $img->storeAs('products/' . $product->id . '/600', $new_name);
+
+                $resized_img->fit(350)->save($img);
+                $path = $img->storeAs('products/' . $product->id . '/350', $new_name);
+
+                $resized_img->fit(100)->save($img);
+                $path = $img->storeAs('products/' . $product->id . '/100', $new_name);
 
                 $arr_imgs[] .= $new_name;
                 $i++;
