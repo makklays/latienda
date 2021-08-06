@@ -32,6 +32,18 @@ class Product extends Model
         'is_active',
     ];
 
+    // Accessor
+    public function getTitlePriceAttribute()
+    {
+        return "{$this->title} {$this->price}";
+    }
+
+    // Mutator
+    public function setTitleAttribute($value)
+    {
+        return $this->attributes['title'] = ucfirst($value);
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
