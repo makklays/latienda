@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Latienda'),
-    'domain' => env('DOMAIN', 'latienda.loc'),
+    'name' => env('APP_NAME', 'Flora e flores'),
+    'domain' => env('DOMAIN', 'floraeflores.es'),
 
     /*
     |--------------------------------------------------------------------------
