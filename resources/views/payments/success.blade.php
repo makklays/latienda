@@ -19,7 +19,7 @@
         <div class="col-md-12">
             <section>
                 <p>
-                    <?= trans('main.Thanks_for_order_description', ['email' => 'orders@latienda.loc']) ?>
+                    <?= trans('main.Thanks_for_order_description', ['email' => 'orders@floraeflores.es']) ?>
                 </p>
             </section>
             <br/>
