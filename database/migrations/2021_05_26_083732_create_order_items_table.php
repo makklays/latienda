@@ -17,6 +17,8 @@ class CreateOrderItemsTable extends Migration
             $table->id();
             $table->bigInteger('order_id')->unsigned();
             $table->bigInteger('product_id')->unsigned();
+            $table->text('title');
+            $table->text('slug');
             $table->integer('quantity');
             $table->double('price', 8, 2);
             $table->timestamps();
