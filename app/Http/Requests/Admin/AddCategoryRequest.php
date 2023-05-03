@@ -35,4 +35,32 @@ class AddCategoryRequest extends FormRequest
             //'category_id' => 'required|integer',
         ];
     }
+    
+    /**
+     * Message by language
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        $lang = app()->getLocale();
+        
+        if ($lang == 'ru') {
+            return [
+                'title.required' => 'Поле Название обязательно для заполнения',
+                'title.min' => 'Минимум 3 символа',
+            ];
+        } elseif ($lang == 'es') {
+            return [
+                'title.required' => 'El campo Título es obligatorio',
+                'title.min' => 'Un mínimo de 3 caracteres',
+            ];
+        } else {
+            return [
+                'title.required' => 'Title is required',
+                'title.min' => 'Minimum 3 characters',
+            ];
+        }
+    }
 }
+
